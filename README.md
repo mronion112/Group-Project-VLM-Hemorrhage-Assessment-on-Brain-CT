@@ -6,17 +6,16 @@
 
 ## Pipeline tổng quát
 
-~~~mermaid
-flowchart LR
-    A[Block 1<br/>Dataset curation + patient-level splits] -->|dataset manifest + split lists + source references| B[Block 2<br/>HU, geometry, windows, diffusion, QC]
-    B -->|preprocessed volume + metadata| C[Block 3<br/>presence, subtype, mask]
-    C -->|findings.json + mask(s)| D[Block 4<br/>mask × voxel spacing]
-    C --> E[Block 5<br/>VLM evidence-grounded report]
-    D -->|volume.json| E
-    B -->|QC + preprocessing metadata| E
-    E -->|report.json + report text| F[Người đánh giá / ứng dụng]
-    F -. phản hồi và model version trong tương lai .-> G[Block 6<br/>Feedback ledger — placeholder]
-~~~
+**Luồng chính:** Dataset → Block 1 → Block 2 → Block 3 → Block 4 → Block 5 → Report.
+
+1. **Dataset → Block 1 — Chia tập:** kiểm kê dữ liệu và nhãn, nhóm theo patient, tạo train/validation/test manifests. Ảnh gốc được giữ tại kho dữ liệu; manifest chứa source reference.
+2. **Block 1 → Block 2 — Preprocessing:** đọc đúng partition từ manifest, nạp CT 3D, xác minh HU/geometry, tạo map các lát 2D có thứ tự và QC. Nguyễn Hoàng Anh phụ trách thêm nhánh diffusion denoising; giữ riêng ảnh baseline để so sánh.
+3. **Block 2 → Block 3 — Deep Learning:** chuyển volume/lát và metadata preprocessing sang mô hình; dự đoán có/không xuất huyết, subtype, vùng tổn thương và mask khi nhãn hỗ trợ.
+4. **Block 3 → Block 4 — Tính thể tích:** chuyển mask cùng spacing/affine; tính mL bằng thể tích voxel vật lý và ghi quality flags.
+5. **Block 2 + Block 3 + Block 4 → Block 5 — VLM:** đưa QC, presence/subtype, vị trí từ mask và volume vào VLM. VLM tạo text có evidence pointer, không tự suy ra trường thiếu.
+6. **Block 5 → Người dùng/đánh giá:** xuất report.json và phần giải thích. Block 6 là nơi dự kiến lưu feedback/model version sau này; nó không nằm trong luồng inference hiện tại.
+
+**Phụ trách CI/CD xuyên suốt:** Nguyễn Quang Vũ Hoàng.
 
 ### Ranh giới cố định giữa các block
 
