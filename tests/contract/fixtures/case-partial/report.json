@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "case_id": "case-synthetic-0002",
+  "status": "partial",
+  "created_at_utc": "2026-01-06T09:10:00Z",
+  "source_artifact_ids": ["findings.json", "volume.json"],
+  "language": "vi",
+  "report_text": "Ca có xuất huyết nhu mô bên trái. Subtype chưa được xác nhận bằng mask.",
+  "claims": [
+    {"field": "presence", "value": "positive", "evidence": ["findings.json#/presence"]},
+    {"field": "volume_ml", "value": 1.2, "evidence": ["volume.json#/volume_ml"]}
+  ],
+  "unsupported_claims": ["subtype"],
+  "missing_evidence": ["findings.masks.subtype"],
+  "model_name": "vlm-synthetic",
+  "model_version": "v0.1.0",
+  "warnings": ["subtype claim omitted: no subtype mask upstream"],
+  "errors": []
+}

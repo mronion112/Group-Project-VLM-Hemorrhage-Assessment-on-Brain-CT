@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "case_id": "case-synthetic-0002",
+  "status": "partial",
+  "created_at_utc": "2026-01-06T08:00:00Z",
+  "source_artifact_ids": ["dataset-synthetic-v1/train-split-v1"],
+  "source_uri": "controlled-data://dataset-synthetic-v1/case-synthetic-0002/series-0001",
+  "split_manifest_id": "train-split-v1",
+  "partition": "train",
+  "output_artifact": "volume_hu.nii.gz",
+  "space_id": "case-synthetic-0002:block2:v1",
+  "hu_conversion": {"status": "unverified", "source": "rescale metadata absent in export"},
+  "resampling": {"applied": false, "target_spacing_mm_xyz": null},
+  "windows": [{"name": "brain", "wl": 40, "ww": 80}],
+  "qc": {"geometry_valid": true, "slice_order_valid": true, "intensity_status": "unverified"},
+  "warnings": ["intensity_status=unverified: rescale metadata missing"],
+  "errors": []
+}

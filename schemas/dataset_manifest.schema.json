@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "dataset_manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dataset_id",
+    "dataset_release",
+    "status",
+    "license_status",
+    "cohort_config",
+    "split_config",
+    "split_manifests",
+    "record_count",
+    "patient_overlap_check",
+    "warnings",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "minLength": 1},
+    "dataset_id": {"type": "string", "minLength": 1},
+    "dataset_release": {"type": "string", "minLength": 1},
+    "status": {"enum": ["ok", "partial", "failed"]},
+    "license_status": {"type": "string", "minLength": 1},
+    "cohort_config": {"type": "string", "minLength": 1},
+    "split_config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seed", "group_key", "ratios"],
+      "properties": {
+        "seed": {"type": "integer"},
+        "group_key": {"type": "string", "minLength": 1},
+        "ratios": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["train", "validation", "test"],
+          "properties": {
+            "train": {"type": "number", "minimum": 0, "maximum": 1},
+            "validation": {"type": "number", "minimum": 0, "maximum": 1},
+            "test": {"type": "number", "minimum": 0, "maximum": 1}
+          }
+        }
+      }
+    },
+    "split_manifests": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["train", "validation", "test"],
+      "properties": {
+        "train": {"type": "string", "minLength": 1},
+        "validation": {"type": "string", "minLength": 1},
+        "test": {"type": "string", "minLength": 1}
+      }
+    },
+    "record_count": {"type": "integer", "minimum": 0},
+    "patient_overlap_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "overlap_count"],
+      "properties": {
+        "status": {"type": "string", "minLength": 1},
+        "overlap_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "created_at_utc": {"type": "string", "minLength": 1},
+    "source_artifact_ids": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": ["string", "object"]}},
+    "errors": {"type": "array", "items": {"type": ["string", "object"]}}
+  }
+}

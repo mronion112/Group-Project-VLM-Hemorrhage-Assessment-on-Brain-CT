@@ -1,0 +1,5 @@
+# CI-only pins. Block code keeps its own environment and dependencies;
+# nothing here is installed into a block runtime.
+jsonschema==4.26.0
+pytest==9.2.0
+ruff==0.17.4

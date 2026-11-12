@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "case_id": "case-synthetic-0001",
+  "status": "ok",
+  "created_at_utc": "2026-01-05T09:00:00Z",
+  "source_artifact_ids": ["case-synthetic-0001:block2:v1"],
+  "model_name": "model-synthetic-ich",
+  "model_version": "v0.1.0",
+  "weights_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "config_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "input_space_id": "case-synthetic-0001:block2:v1",
+  "presence": {"label": "positive", "score": 0.91, "threshold": 0.5},
+  "subtypes": {
+    "EDH": {"score": 0.03, "present": false},
+    "SDH": {"score": 0.81, "present": true},
+    "SAH": {"score": 0.12, "present": false},
+    "IPH": {"score": 0.06, "present": false},
+    "IVH": {"score": 0.02, "present": false}
+  },
+  "masks": {
+    "ich": {"artifact": "mask_ich.nii.gz", "space_id": "case-synthetic-0001:block2:v1"},
+    "subtype": {
+      "artifact": "mask_subtype.nii.gz",
+      "space_id": "case-synthetic-0001:block2:v1"
+    }
+  },
+  "localization": {
+    "status": "mask-derived",
+    "side": "right",
+    "regions": ["right frontal convexity"],
+    "coordinate_system": "RAS+"
+  },
+  "heatmaps": [],
+  "warnings": [],
+  "errors": []
+}

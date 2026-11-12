@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "case_id": "case-synthetic-0001",
+  "status": "ok",
+  "created_at_utc": "2026-01-05T08:00:00Z",
+  "source_artifact_ids": ["dataset-synthetic-v1/train-split-v1"],
+  "source_uri": "controlled-data://dataset-synthetic-v1/case-synthetic-0001/series-0001",
+  "split_manifest_id": "train-split-v1",
+  "partition": "train",
+  "output_artifact": "volume_hu.nii.gz",
+  "space_id": "case-synthetic-0001:block2:v1",
+  "hu_conversion": {"status": "applied", "source": "DICOM rescale slope/intercept"},
+  "resampling": {"applied": false, "target_spacing_mm_xyz": null},
+  "windows": [{"name": "brain", "wl": 40, "ww": 80}],
+  "diffusion_correction": {
+    "enabled": true,
+    "artifact": "volume_diffusion.nii.gz",
+    "model_version": "diffusion-v0.1",
+    "branch_status": "candidate"
+  },
+  "qc": {"geometry_valid": true, "slice_order_valid": true, "intensity_status": "verified"},
+  "warnings": [],
+  "errors": []
+}

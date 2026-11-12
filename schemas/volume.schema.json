@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "volume",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "status",
+    "method",
+    "source_mask",
+    "space_id",
+    "voxel_spacing_mm_xyz",
+    "voxel_count",
+    "volume_ml",
+    "by_subtype_ml",
+    "quality_flags",
+    "warnings",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["ok", "partial", "failed"]},
+    "method": {"type": "string", "minLength": 1},
+    "source_mask": {"type": "string", "minLength": 1},
+    "space_id": {"type": "string", "minLength": 1},
+    "voxel_spacing_mm_xyz": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"type": "number", "exclusiveMinimum": 0}
+    },
+    "voxel_count": {"type": "integer", "minimum": 0},
+    "volume_ml": {"type": "number", "minimum": 0},
+    "by_subtype_ml": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "EDH": {"type": "number", "minimum": 0},
+            "SDH": {"type": "number", "minimum": 0},
+            "SAH": {"type": "number", "minimum": 0},
+            "IPH": {"type": "number", "minimum": 0},
+            "IVH": {"type": "number", "minimum": 0}
+          }
+        }
+      ]
+    },
+    "quality_flags": {"type": "array", "items": {"type": "string"}},
+    "created_at_utc": {"type": "string", "minLength": 1},
+    "source_artifact_ids": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": ["string", "object"]}},
+    "errors": {"type": "array", "items": {"type": ["string", "object"]}}
+  }
+}

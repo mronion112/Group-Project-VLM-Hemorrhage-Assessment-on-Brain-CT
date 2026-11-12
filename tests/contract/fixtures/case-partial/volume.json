@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "case_id": "case-synthetic-0002",
+  "status": "partial",
+  "created_at_utc": "2026-01-06T09:05:00Z",
+  "source_artifact_ids": ["mask_ich.nii.gz", "case-synthetic-0002:block2:v1"],
+  "method": "voxel_count_times_physical_voxel_volume",
+  "source_mask": "mask_ich.nii.gz",
+  "space_id": "case-synthetic-0002:block2:v1",
+  "voxel_spacing_mm_xyz": [0.5, 0.5, 5.0],
+  "voxel_count": 960,
+  "volume_ml": 1.2,
+  "by_subtype_ml": null,
+  "quality_flags": ["spacing_from_header_unconfirmed", "no_subtype_mask"],
+  "warnings": ["spacing taken from header while intensity remains unverified"],
+  "errors": []
+}

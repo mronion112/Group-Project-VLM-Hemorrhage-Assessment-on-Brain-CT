@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "findings",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "status",
+    "model_name",
+    "model_version",
+    "input_space_id",
+    "presence",
+    "subtypes",
+    "masks",
+    "localization",
+    "warnings",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["ok", "partial", "failed"]},
+    "model_name": {"type": "string", "minLength": 1},
+    "model_version": {"type": "string", "minLength": 1},
+    "weights_hash": {"type": "string", "minLength": 1},
+    "config_hash": {"type": "string", "minLength": 1},
+    "input_space_id": {"type": "string", "minLength": 1},
+    "presence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "score", "threshold"],
+      "properties": {
+        "label": {"enum": ["positive", "negative", "uncertain"]},
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "threshold": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "subtypes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["EDH", "SDH", "SAH", "IPH", "IVH"],
+      "properties": {
+        "EDH": {"$ref": "#/$defs/subtype_score"},
+        "SDH": {"$ref": "#/$defs/subtype_score"},
+        "SAH": {"$ref": "#/$defs/subtype_score"},
+        "IPH": {"$ref": "#/$defs/subtype_score"},
+        "IVH": {"$ref": "#/$defs/subtype_score"}
+      }
+    },
+    "masks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ich", "subtype"],
+      "properties": {
+        "ich": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["artifact", "space_id"],
+          "properties": {
+            "artifact": {"type": "string", "minLength": 1},
+            "space_id": {"type": "string", "minLength": 1}
+          }
+        },
+        "subtype": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["artifact", "space_id"],
+              "properties": {
+                "artifact": {"type": "string", "minLength": 1},
+                "space_id": {"type": "string", "minLength": 1}
+              }
+            }
+          ]
+        }
+      }
+    },
+    "localization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "side", "regions", "coordinate_system"],
+      "properties": {
+        "status": {"type": "string", "minLength": 1},
+        "side": {"type": ["string", "null"]},
+        "regions": {"type": "array"},
+        "coordinate_system": {"type": "string", "minLength": 1}
+      }
+    },
+    "heatmaps": {"type": "array"},
+    "created_at_utc": {"type": "string", "minLength": 1},
+    "source_artifact_ids": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": ["string", "object"]}},
+    "errors": {"type": "array", "items": {"type": ["string", "object"]}}
+  },
+  "$defs": {
+    "subtype_score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "present"],
+      "properties": {
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "present": {"type": "boolean"}
+      }
+    }
+  }
+}
