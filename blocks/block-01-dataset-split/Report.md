@@ -5,7 +5,7 @@
 
 ## Trạng thái
 
-Phạm vi đã điều chỉnh theo yêu cầu: Block 1 chỉ kiểm kê dataset và tạo split manifests theo patient. Chưa có dataset nào được audit/download/chia tập trong repo; chưa có kết quả benchmark.
+Phạm vi: Block 1 chỉ kiểm kê dataset và tạo split manifests theo patient. Chưa có dataset nào được audit/download/chia tập trong repo; chưa có kết quả benchmark.
 
 ## Phương pháp
 
