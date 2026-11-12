@@ -1,0 +1,26 @@
+name: pr-title
+
+# Advisory gate: the team has not adopted Conventional Commits as a blocking
+# rule yet, so this job only emits a warning annotation and always exits 0.
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  conventional-title:
+    name: conventional PR title (advisory)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title format
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          pattern='^(feat|fix|refactor|docs|test|style|chore|perf|build|ci)(\([a-z0-9._/-]+\))?!?: .{1,72}$'
+          if printf '%s' "$PR_TITLE" | grep -Eq "$pattern"; then
+            echo "PR title follows Conventional Commits."
+          else
+            echo "::warning::PR title does not follow Conventional Commits."
+          fi

@@ -1,7 +1,7 @@
 # Đánh giá xuất huyết nội sọ trên CT não bằng DL–VLM
 
 > **Mục tiêu:** nhận một ca CT não 3D, tạo các lát 2D có thứ tự để xử lý, phân tích bằng mô hình chuyên biệt, tính thể tích từ mask và sinh phần giải thích bằng VLM dựa trên bằng chứng.
-
+>
 > Đây là khung nghiên cứu và hợp đồng tích hợp cho các nhóm phát triển độc lập. Repo hiện chứa tài liệu thiết kế; các chỉ số thời gian và chất lượng của chính dự án vẫn cần được đo trên dữ liệu và phần cứng đã chốt.
 
 ## Pipeline tổng quát
@@ -39,7 +39,7 @@ Hợp đồng dữ liệu chung chi tiết ở [docs/INTERFACE_CONTRACT.md](docs
 | Block 4 — Volume | Nguyễn Văn Đức, Nguyễn Hoàng Anh | Tính mL từ mask/spacing và kiểm chứng sai số |
 | Block 5 — VLM | Nguyễn Hoàng Minh | Sinh giải thích từ evidence có cấu trúc và đánh giá factuality |
 | Block 6 — Feedback ledger | Nguyễn Tùng Sơn | Thiết kế phần lưu feedback/model version; hiện để placeholder |
-| CI/CD | Nguyễn Quang Vũ Hoàng | Điều phối CI/CD, tư vấn quy trình và theo dõi tích hợp/benchmark giữa các block |
+| CI/CD | Nguyễn Quang Vũ Hoàng | Điều phối CI/CD, tư vấn quy trình và theo dõi tích hợp/benchmark giữa các block; gate và cách chạy ở [docs/CI.md](docs/CI.md), trạng thái tích hợp ở [docs/INTEGRATION_STATUS.md](docs/INTEGRATION_STATUS.md) |
 
 Chi tiết phạm vi và bàn giao theo người phụ trách: [docs/OWNERSHIP.md](docs/OWNERSHIP.md). Phân công CI/CD không làm thay đổi owner kỹ thuật của từng block.
 

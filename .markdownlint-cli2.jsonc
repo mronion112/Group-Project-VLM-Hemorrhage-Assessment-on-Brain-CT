@@ -1,0 +1,18 @@
+{
+  // MD013 line length, MD033 inline HTML: not useful for long Vietnamese tables.
+  // MD024/MD034/MD040/MD041: conflict with the existing documentation layout.
+  // MD047: the current docs end with an extra blank line; normalizing every
+  // block document is out of scope here, so the rule stays off for now.
+  // MD060: the existing tables use the compact pipe style on purpose.
+  "config": {
+    "MD013": false,
+    "MD024": false,
+    "MD033": false,
+    "MD034": false,
+    "MD040": false,
+    "MD041": false,
+    "MD047": false,
+    "MD060": false,
+    "MD012": {"maximum": 2}
+  }
+}
