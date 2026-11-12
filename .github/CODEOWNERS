@@ -1,0 +1,11 @@
+# Default owner for every path in the repository.
+* @mronion112
+
+# Block owners still need a confirmed GitHub handle. Replace the placeholder
+# with the real handle and uncomment the matching line.
+# /blocks/block-01-dataset-split/      @<block-01-handle>
+# /blocks/block-02-preprocessing/      @<block-02-handle>
+# /blocks/block-03-deep-learning/      @<block-03-handle>
+# /blocks/block-04-volume/             @<block-04-handle>
+# /blocks/block-05-vlm/                @<block-05-handle>
+# /blocks/block-06-feedback-ledger/    @<block-06-handle>
