@@ -5,6 +5,7 @@
 ## Checklist
 
 - [ ] Artifact tuân thủ `docs/INTERFACE_CONTRACT.md`: đúng field, đúng `schema_version`, không đổi ngầm ý nghĩa field
+- [ ] Artifact ca thật (nếu có) đặt trong `contract-cases/<case_id>/` và pass `python3 scripts/check_case_artifacts.py --cases-root contract-cases`
 - [ ] `python3 scripts/validate_contract.py` và `python3 -m pytest tests -q` chạy pass ở local
 - [ ] Số benchmark ghi kèm cấu hình, phần cứng và tập dữ liệu dùng để đo
 - [ ] Không có dữ liệu bệnh nhân, ảnh y tế hoặc file `.nii*`, `.dcm`, `.nrrd` trong PR
