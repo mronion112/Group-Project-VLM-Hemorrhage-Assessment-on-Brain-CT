@@ -1,0 +1,27 @@
+{
+  "dataset_id": "bhsd",
+  "dataset_release": "WuBiao-BHSD-label192-2023",
+  "summary_scope": "aggregate_dataset_totals_only_no_per_case_records",
+  "total_volumes": 192,
+  "unique_patients": 191,
+  "patients_with_one_volume": 190,
+  "patients_with_two_volumes": 1,
+  "negative_volumes": 0,
+  "total_slices": 6404,
+  "pos_slices": 2368,
+  "neg_slices": 4036,
+  "vol_subtype_counts": {
+    "IPH": 127,
+    "SAH": 109,
+    "IVH": 104,
+    "SDH": 70,
+    "EDH": 23
+  },
+  "slice_subtype_counts": {
+    "SAH": 976,
+    "IPH": 888,
+    "SDH": 765,
+    "IVH": 713,
+    "EDH": 181
+  }
+}

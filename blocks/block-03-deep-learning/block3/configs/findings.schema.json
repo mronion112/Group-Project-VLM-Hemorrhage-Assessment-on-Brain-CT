@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Nguon: docs/INTERFACE_CONTRACT.md (repo nhom), muc findings.json, schema_version 1.0. Cac field created_at_utc, source_artifact_ids, weights_hash, config_hash lay tu 'Quy uoc chung' cua contract. KHONG them field ngoai contract (extent/bbox nam o file phu rieng cua Block 3).",
+  "title": "findings.json (Block 3)",
+  "type": "object",
+  "required": ["schema_version", "case_id", "status", "created_at_utc", "source_artifact_ids",
+               "model_name", "model_version", "weights_hash", "config_hash", "input_space_id",
+               "presence", "subtypes", "masks", "localization", "heatmaps", "warnings", "errors"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "case_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["ok", "partial", "failed"]},
+    "created_at_utc": {"type": "string", "minLength": 1},
+    "source_artifact_ids": {"type": "array", "items": {"type": "string"}},
+    "model_name": {"type": "string", "minLength": 1},
+    "model_version": {"type": "string", "minLength": 1},
+    "weights_hash": {"type": "string"},
+    "config_hash": {"type": "string"},
+    "input_space_id": {"type": "string", "minLength": 1},
+    "presence": {
+      "type": "object",
+      "required": ["label", "score", "threshold"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {"enum": ["positive", "negative", "uncertain"]},
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "threshold": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "subtypes": {
+      "type": "object",
+      "required": ["EDH", "SDH", "SAH", "IPH", "IVH"],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^(EDH|SDH|SAH|IPH|IVH)$": {
+          "type": "object",
+          "required": ["score", "present"],
+          "additionalProperties": false,
+          "properties": {
+            "score": {"type": "number", "minimum": 0, "maximum": 1},
+            "present": {"type": "boolean"}
+          }
+        }
+      }
+    },
+    "masks": {
+      "type": "object",
+      "required": ["ich", "subtype"],
+      "additionalProperties": false,
+      "properties": {
+        "ich": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "object", "required": ["artifact", "space_id"], "additionalProperties": false,
+             "properties": {"artifact": {"type": "string"}, "space_id": {"type": "string"}}}
+          ]
+        },
+        "subtype": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "object", "required": ["artifact", "space_id"], "additionalProperties": false,
+             "properties": {"artifact": {"type": "string"}, "space_id": {"type": "string"}}}
+          ]
+        }
+      }
+    },
+    "localization": {
+      "type": "object",
+      "required": ["status", "side", "regions", "coordinate_system"],
+      "properties": {
+        "status": {"type": "string"},
+        "side": {"type": ["string", "null"]},
+        "regions": {"type": "array"},
+        "coordinate_system": {"type": "string"}
+      }
+    },
+    "heatmaps": {"type": "array"},
+    "warnings": {"type": "array"},
+    "errors": {"type": "array"}
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"const": "partial"}}},
+     "then": {"properties": {"warnings": {"minItems": 1}}}},
+    {"if": {"properties": {"status": {"const": "failed"}}},
+     "then": {"properties": {"errors": {"minItems": 1}}}}
+  ]
+}

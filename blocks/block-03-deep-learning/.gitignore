@@ -1,0 +1,17 @@
+.venv/
+_ref/
+__pycache__/
+.pytest_cache/
+block3/data/raw_staging/
+block3/data/raw_external/
+block3/data/raw_external/**
+block3/data/processed/
+block3/data/*.zip
+*.zip
+archives/
+data_raw/
+block3/checkpoints/*.pt
+block3/checkpoints/*.pth
+*.nii
+*.nii.gz
+*.dcm

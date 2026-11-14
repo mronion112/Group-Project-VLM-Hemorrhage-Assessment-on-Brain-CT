@@ -1,0 +1,21 @@
+{
+  "measured_at_utc": "2026-11-11T14:59:12+00:00",
+  "project_root": "block-03-deep-learning",
+  "os": "Linux-7.3.1-1-cachyos-x86_64-with-glibc2.44",
+  "cpu_name": "",
+  "cpu_logical_threads": 16,
+  "ram": {
+    "total_gb": 14.92,
+    "available_gb": 5.78,
+    "load_percent": 61
+  },
+  "disk": {
+    "drive": "/",
+    "total_gb": 304.39,
+    "free_gb": 39.49
+  },
+  "venv_size_gb": 0.0,
+  "python": "3.14.9",
+  "inside_onedrive": false,
+  "torch": null
+}

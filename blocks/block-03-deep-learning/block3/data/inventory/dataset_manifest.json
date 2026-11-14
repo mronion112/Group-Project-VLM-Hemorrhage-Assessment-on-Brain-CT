@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-11-10T13:53:00+00:00",
+  "source_artifact_ids": [
+    "block3/data/splits/split_config.json"
+  ],
+  "dataset_id": "bhsd",
+  "dataset_release": "BHSD-2023-label192",
+  "status": "ok",
+  "license_status": "verified-for-project-use",
+  "cohort_config": "block3-bhsd192-patient-split-v2",
+  "split_config": {
+    "seed": 2026,
+    "group_key": "patient_group_id",
+    "ratios": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    }
+  },
+  "split_manifests": {
+    "train": "splits/train.csv",
+    "validation": "splits/validation.csv",
+    "test": "splits/test.csv"
+  },
+  "record_count": 192,
+  "patient_overlap_check": {
+    "status": "passed",
+    "overlap_count": 0
+  },
+  "warnings": [],
+  "errors": []
+}

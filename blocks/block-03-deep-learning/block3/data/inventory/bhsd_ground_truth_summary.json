@@ -1,0 +1,1615 @@
+{
+  "total_volumes": 192,
+  "unique_patients": 191,
+  "multi_volume_patients": {
+    "ID_2db7ee14": [
+      "ID_2db7ee14_ID_2591d00dfc",
+      "ID_2db7ee14_ID_f27e38fdfd"
+    ]
+  },
+  "negative_volumes": 0,
+  "total_slices": 6404,
+  "pos_slices": 2368,
+  "neg_slices": 4036,
+  "vol_subtype_counts": {
+    "IPH": 127,
+    "IVH": 104,
+    "SAH": 109,
+    "SDH": 70,
+    "EDH": 23
+  },
+  "slice_subtype_counts": {
+    "IVH": 713,
+    "IPH": 888,
+    "SAH": 976,
+    "SDH": 765,
+    "EDH": 181
+  },
+  "volumes": {
+    "ID_eb093f57_ID_0e2b33b4c9": {
+      "slices": 38,
+      "pos_slices": 21,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_6c85adda_ID_86bc0ab248": {
+      "slices": 32,
+      "pos_slices": 5,
+      "subtypes": [
+        "SAH"
+      ]
+    },
+    "ID_977da27d_ID_7ca7e2a2e4": {
+      "slices": 46,
+      "pos_slices": 14,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_90233c1a_ID_51c49c9abf": {
+      "slices": 28,
+      "pos_slices": 10,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_552aabb9_ID_152fdcf86e": {
+      "slices": 30,
+      "pos_slices": 10,
+      "subtypes": [
+        "IPH",
+        "SDH"
+      ]
+    },
+    "ID_b1d5d5e8_ID_4cfa36b63f": {
+      "slices": 32,
+      "pos_slices": 19,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_5adb32dc_ID_35dd6d3d56": {
+      "slices": 32,
+      "pos_slices": 12,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_2872834a_ID_542e9d00da": {
+      "slices": 32,
+      "pos_slices": 4,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_727c946e_ID_e1fd84171a": {
+      "slices": 30,
+      "pos_slices": 6,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_88dbe13f_ID_01c5078fbf": {
+      "slices": 36,
+      "pos_slices": 17,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_87e60d98_ID_0c2d2758ae": {
+      "slices": 28,
+      "pos_slices": 10,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_69b19057_ID_44d0da38f2": {
+      "slices": 32,
+      "pos_slices": 22,
+      "subtypes": [
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_693f2d48_ID_06a88c0e8b": {
+      "slices": 28,
+      "pos_slices": 6,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_2e21c3f3_ID_bc8f99a0cc": {
+      "slices": 32,
+      "pos_slices": 15,
+      "subtypes": [
+        "EDH",
+        "SDH"
+      ]
+    },
+    "ID_9cc1c1a0_ID_8fb44d82d0": {
+      "slices": 32,
+      "pos_slices": 7,
+      "subtypes": [
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_c91d516c_ID_2d2f3d2953": {
+      "slices": 28,
+      "pos_slices": 12,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_c9d6fdc6_ID_7f09be285d": {
+      "slices": 38,
+      "pos_slices": 19,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_39702b69_ID_167ab8c629": {
+      "slices": 32,
+      "pos_slices": 17,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_041e6601_ID_1fa1d20bba": {
+      "slices": 32,
+      "pos_slices": 17,
+      "subtypes": [
+        "EDH",
+        "IPH",
+        "SDH"
+      ]
+    },
+    "ID_8e8df8c0_ID_857231e0c6": {
+      "slices": 32,
+      "pos_slices": 6,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_3bda60be_ID_067209cc9a": {
+      "slices": 40,
+      "pos_slices": 13,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_aaf2973d_ID_4002bc3ced": {
+      "slices": 24,
+      "pos_slices": 11,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_6caf8d60_ID_3634a47122": {
+      "slices": 40,
+      "pos_slices": 1,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_56983eda_ID_a1eb0918d6": {
+      "slices": 32,
+      "pos_slices": 15,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_96cd5341_ID_41b80bd3ec": {
+      "slices": 28,
+      "pos_slices": 17,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_3e481fc5_ID_750530c215": {
+      "slices": 32,
+      "pos_slices": 5,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_981d95a4_ID_ec08553ddc": {
+      "slices": 36,
+      "pos_slices": 17,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_e1d9fe9d_ID_f73aea5186": {
+      "slices": 28,
+      "pos_slices": 12,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_d02f2ee1_ID_a732858fcd": {
+      "slices": 30,
+      "pos_slices": 7,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_b14c7e8b_ID_fe3a6804e3": {
+      "slices": 32,
+      "pos_slices": 7,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_5e405f44_ID_7a773f615f": {
+      "slices": 34,
+      "pos_slices": 16,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_b972b07f_ID_b5ace7f563": {
+      "slices": 32,
+      "pos_slices": 18,
+      "subtypes": [
+        "EDH",
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_8d914da6_ID_b4eb9c8234": {
+      "slices": 40,
+      "pos_slices": 3,
+      "subtypes": [
+        "SAH"
+      ]
+    },
+    "ID_9ed18606_ID_8cfe740d83": {
+      "slices": 28,
+      "pos_slices": 15,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SDH"
+      ]
+    },
+    "ID_ba3a77dd_ID_70715be365": {
+      "slices": 32,
+      "pos_slices": 10,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_58d2ebfa_ID_76487f508f": {
+      "slices": 38,
+      "pos_slices": 9,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_eb5a964a_ID_c2f5350a3f": {
+      "slices": 34,
+      "pos_slices": 14,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_a40e10b0_ID_18c55dad14": {
+      "slices": 30,
+      "pos_slices": 27,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_790acb3f_ID_c294f81468": {
+      "slices": 34,
+      "pos_slices": 22,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_089596a9_ID_ea71b57820": {
+      "slices": 40,
+      "pos_slices": 6,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_596dfbc1_ID_fe7dab2602": {
+      "slices": 34,
+      "pos_slices": 10,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_181aab15_ID_062634d043": {
+      "slices": 28,
+      "pos_slices": 15,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_f335b6db_ID_d180629430": {
+      "slices": 36,
+      "pos_slices": 29,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_e05b3047_ID_3d78428b2d": {
+      "slices": 36,
+      "pos_slices": 13,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_80b8d734_ID_f599f2d14b": {
+      "slices": 34,
+      "pos_slices": 8,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_d29d246b_ID_6121b401e7": {
+      "slices": 32,
+      "pos_slices": 20,
+      "subtypes": [
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_a1703be5_ID_d0e02f0443": {
+      "slices": 32,
+      "pos_slices": 5,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_d79fa3ff_ID_90d02c54ba": {
+      "slices": 34,
+      "pos_slices": 13,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SDH"
+      ]
+    },
+    "ID_4e227c9c_ID_d8607fa88e": {
+      "slices": 30,
+      "pos_slices": 13,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_fb6d0135_ID_497840f16e": {
+      "slices": 28,
+      "pos_slices": 18,
+      "subtypes": [
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_4681a956_ID_5b133aa2c0": {
+      "slices": 28,
+      "pos_slices": 12,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_73cae446_ID_852cb06998": {
+      "slices": 32,
+      "pos_slices": 8,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_f4795940_ID_6317a06429": {
+      "slices": 32,
+      "pos_slices": 16,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_5910d129_ID_094eb98167": {
+      "slices": 34,
+      "pos_slices": 18,
+      "subtypes": [
+        "EDH",
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_daf22e49_ID_bf76e84f8d": {
+      "slices": 32,
+      "pos_slices": 11,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_2334b45f_ID_9f31e831ac": {
+      "slices": 42,
+      "pos_slices": 26,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_98fcfe52_ID_a8bbf4336d": {
+      "slices": 32,
+      "pos_slices": 5,
+      "subtypes": [
+        "IVH"
+      ]
+    },
+    "ID_a429fd9a_ID_2eabc43f3d": {
+      "slices": 32,
+      "pos_slices": 2,
+      "subtypes": [
+        "SAH"
+      ]
+    },
+    "ID_b79a2d4a_ID_710cdb6530": {
+      "slices": 38,
+      "pos_slices": 6,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_1cbe2853_ID_37afefdc7c": {
+      "slices": 32,
+      "pos_slices": 6,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_3dab46e7_ID_e837f87e46": {
+      "slices": 30,
+      "pos_slices": 17,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_2949cdc6_ID_dcb864c93f": {
+      "slices": 28,
+      "pos_slices": 4,
+      "subtypes": [
+        "EDH",
+        "SAH"
+      ]
+    },
+    "ID_05331dc6_ID_47213b7e2e": {
+      "slices": 32,
+      "pos_slices": 16,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_6874ab42_ID_209e53bf66": {
+      "slices": 39,
+      "pos_slices": 18,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_47aa2b3a_ID_95a9953aba": {
+      "slices": 24,
+      "pos_slices": 2,
+      "subtypes": [
+        "SAH"
+      ]
+    },
+    "ID_98450f26_ID_8d66ffdc94": {
+      "slices": 32,
+      "pos_slices": 6,
+      "subtypes": [
+        "SAH"
+      ]
+    },
+    "ID_e714812a_ID_11a3b1afdc": {
+      "slices": 34,
+      "pos_slices": 6,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_39e94772_ID_f1a5ef6a24": {
+      "slices": 36,
+      "pos_slices": 14,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_b92014da_ID_a9310805a0": {
+      "slices": 32,
+      "pos_slices": 3,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_c5479170_ID_6cc8f5463a": {
+      "slices": 32,
+      "pos_slices": 11,
+      "subtypes": [
+        "IVH"
+      ]
+    },
+    "ID_41a55df8_ID_ca0abe844a": {
+      "slices": 34,
+      "pos_slices": 7,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SDH"
+      ]
+    },
+    "ID_18747540_ID_1eb1de9633": {
+      "slices": 34,
+      "pos_slices": 13,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_495ac92a_ID_4daa7b9cc7": {
+      "slices": 38,
+      "pos_slices": 16,
+      "subtypes": [
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_ca7bbeab_ID_228e9cbe5c": {
+      "slices": 32,
+      "pos_slices": 20,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_d9675573_ID_02237f7694": {
+      "slices": 40,
+      "pos_slices": 7,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_9dce269b_ID_4191982e02": {
+      "slices": 44,
+      "pos_slices": 18,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SDH"
+      ]
+    },
+    "ID_e3db11e0_ID_1863688c5b": {
+      "slices": 36,
+      "pos_slices": 12,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_19d26713_ID_9f54cdc920": {
+      "slices": 32,
+      "pos_slices": 2,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_811a274b_ID_fa1c9402fb": {
+      "slices": 32,
+      "pos_slices": 13,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SDH"
+      ]
+    },
+    "ID_ea687366_ID_452c5f1f8c": {
+      "slices": 38,
+      "pos_slices": 16,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_1653b22b_ID_c35cd0de73": {
+      "slices": 32,
+      "pos_slices": 13,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_95c4a59c_ID_47aa7ea02b": {
+      "slices": 28,
+      "pos_slices": 20,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_9a8ad2df_ID_0ec627c99a": {
+      "slices": 40,
+      "pos_slices": 21,
+      "subtypes": [
+        "IVH",
+        "SDH"
+      ]
+    },
+    "ID_90b88b8b_ID_8d39c61ccd": {
+      "slices": 30,
+      "pos_slices": 7,
+      "subtypes": [
+        "EDH",
+        "SDH"
+      ]
+    },
+    "ID_cdaa21cb_ID_a5f7ae30f1": {
+      "slices": 36,
+      "pos_slices": 11,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_66a9a60e_ID_3a4f389a07": {
+      "slices": 46,
+      "pos_slices": 28,
+      "subtypes": [
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_b85bdbe9_ID_cb52cd5d53": {
+      "slices": 42,
+      "pos_slices": 16,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_0b10cbee_ID_f91d6a7cd2": {
+      "slices": 32,
+      "pos_slices": 6,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_cb4c887c_ID_ec2a4643f3": {
+      "slices": 30,
+      "pos_slices": 12,
+      "subtypes": [
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_c488fbef_ID_ae4af6dd21": {
+      "slices": 36,
+      "pos_slices": 17,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_b367130b_ID_debc60a9ba": {
+      "slices": 32,
+      "pos_slices": 15,
+      "subtypes": [
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_d2deede6_ID_799247e354": {
+      "slices": 35,
+      "pos_slices": 5,
+      "subtypes": [
+        "IVH"
+      ]
+    },
+    "ID_997f19cf_ID_8fc04eb1f5": {
+      "slices": 32,
+      "pos_slices": 10,
+      "subtypes": [
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_02f779fb_ID_c4d7f33559": {
+      "slices": 31,
+      "pos_slices": 8,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_69e721e0_ID_a6f36605d7": {
+      "slices": 34,
+      "pos_slices": 10,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_3be7cc35_ID_cf2643c5a8": {
+      "slices": 36,
+      "pos_slices": 25,
+      "subtypes": [
+        "EDH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_75448f16_ID_780b14c9d7": {
+      "slices": 32,
+      "pos_slices": 21,
+      "subtypes": [
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_1879071b_ID_4b8e1377e7": {
+      "slices": 38,
+      "pos_slices": 15,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_e8691c40_ID_4e6812b21a": {
+      "slices": 32,
+      "pos_slices": 6,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_02b882cc_ID_a4892e60ae": {
+      "slices": 32,
+      "pos_slices": 14,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_268b38fe_ID_d747ae3ffb": {
+      "slices": 32,
+      "pos_slices": 19,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_56faaf6f_ID_dd8f688dff": {
+      "slices": 48,
+      "pos_slices": 38,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_ed6dfff7_ID_f54a5fd2c8": {
+      "slices": 32,
+      "pos_slices": 9,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_7860208e_ID_f68c193b69": {
+      "slices": 32,
+      "pos_slices": 17,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_63862d24_ID_24f0f2ff02": {
+      "slices": 60,
+      "pos_slices": 18,
+      "subtypes": [
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_eb39f236_ID_d7edccdb08": {
+      "slices": 28,
+      "pos_slices": 17,
+      "subtypes": [
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_b3a33085_ID_175a5c4119": {
+      "slices": 32,
+      "pos_slices": 10,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_a768755c_ID_3541b002ac": {
+      "slices": 36,
+      "pos_slices": 10,
+      "subtypes": [
+        "IPH",
+        "SDH"
+      ]
+    },
+    "ID_751df220_ID_4c26128a8d": {
+      "slices": 32,
+      "pos_slices": 14,
+      "subtypes": [
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_9631ec18_ID_c205d02b10": {
+      "slices": 32,
+      "pos_slices": 8,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_4a16396b_ID_1f3e0c2c5c": {
+      "slices": 30,
+      "pos_slices": 12,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_346de481_ID_2e8fea0d9a": {
+      "slices": 32,
+      "pos_slices": 23,
+      "subtypes": [
+        "EDH",
+        "IPH",
+        "SDH"
+      ]
+    },
+    "ID_10beb45f_ID_7184e80f09": {
+      "slices": 28,
+      "pos_slices": 4,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_5117f9bf_ID_14d96feecf": {
+      "slices": 36,
+      "pos_slices": 11,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_ccbe16e6_ID_706deb5ba2": {
+      "slices": 32,
+      "pos_slices": 14,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_a554892c_ID_7d5bccea0e": {
+      "slices": 32,
+      "pos_slices": 10,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_14058625_ID_527c581583": {
+      "slices": 36,
+      "pos_slices": 9,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_07365cde_ID_8e661b8f07": {
+      "slices": 30,
+      "pos_slices": 5,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_6bb6dd02_ID_dd6370b417": {
+      "slices": 32,
+      "pos_slices": 10,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_c1e1c4ef_ID_521bc36497": {
+      "slices": 40,
+      "pos_slices": 31,
+      "subtypes": [
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_85f42dd5_ID_a0ef1a9eaf": {
+      "slices": 36,
+      "pos_slices": 11,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_acaa9bd1_ID_02fe96388e": {
+      "slices": 32,
+      "pos_slices": 3,
+      "subtypes": [
+        "IVH"
+      ]
+    },
+    "ID_3343ddf2_ID_fddff2e9c1": {
+      "slices": 24,
+      "pos_slices": 5,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_e2e2e522_ID_7b7b5543dc": {
+      "slices": 30,
+      "pos_slices": 20,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_eac5718d_ID_5a2b7690df": {
+      "slices": 39,
+      "pos_slices": 20,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_c08a7b51_ID_b98f437f69": {
+      "slices": 33,
+      "pos_slices": 18,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_4e25e744_ID_b0275c19cd": {
+      "slices": 34,
+      "pos_slices": 8,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_50b54af0_ID_fbeeed4370": {
+      "slices": 32,
+      "pos_slices": 14,
+      "subtypes": [
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_253e809f_ID_095d8c391f": {
+      "slices": 30,
+      "pos_slices": 14,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_82cfc6a8_ID_da93401499": {
+      "slices": 40,
+      "pos_slices": 7,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_b80aec97_ID_2aa91505e6": {
+      "slices": 32,
+      "pos_slices": 17,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_a9b3fedc_ID_3850bef0a3": {
+      "slices": 30,
+      "pos_slices": 18,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_2db7ee14_ID_2591d00dfc": {
+      "slices": 37,
+      "pos_slices": 6,
+      "subtypes": [
+        "EDH",
+        "SAH"
+      ]
+    },
+    "ID_30d19531_ID_cf607a5cd7": {
+      "slices": 32,
+      "pos_slices": 22,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_39bdd84b_ID_a318f304e4": {
+      "slices": 30,
+      "pos_slices": 5,
+      "subtypes": [
+        "IVH"
+      ]
+    },
+    "ID_dd3d7720_ID_6a88b9c0eb": {
+      "slices": 30,
+      "pos_slices": 4,
+      "subtypes": [
+        "SAH"
+      ]
+    },
+    "ID_df935041_ID_32b8592d2c": {
+      "slices": 40,
+      "pos_slices": 14,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_db89259c_ID_2c20aff0f9": {
+      "slices": 33,
+      "pos_slices": 2,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_fcbe7eda_ID_5726e1c630": {
+      "slices": 32,
+      "pos_slices": 5,
+      "subtypes": [
+        "SAH"
+      ]
+    },
+    "ID_2931ca43_ID_2a2b28e0ab": {
+      "slices": 32,
+      "pos_slices": 4,
+      "subtypes": [
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_55742eb7_ID_7d5ad548ca": {
+      "slices": 32,
+      "pos_slices": 16,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_faa3c13d_ID_c31106b8dc": {
+      "slices": 29,
+      "pos_slices": 11,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_7d5594ff_ID_cb535d3e8b": {
+      "slices": 32,
+      "pos_slices": 19,
+      "subtypes": [
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_0c6b97a9_ID_6011bb9ce8": {
+      "slices": 32,
+      "pos_slices": 22,
+      "subtypes": [
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_77cd921b_ID_e0d0a5f299": {
+      "slices": 30,
+      "pos_slices": 20,
+      "subtypes": [
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_2db7ee14_ID_f27e38fdfd": {
+      "slices": 34,
+      "pos_slices": 5,
+      "subtypes": [
+        "EDH",
+        "SAH"
+      ]
+    },
+    "ID_a9fe41fd_ID_ba000cea10": {
+      "slices": 38,
+      "pos_slices": 3,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_46cd34ad_ID_3003623499": {
+      "slices": 32,
+      "pos_slices": 6,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_cf8f428f_ID_61ec5a3e22": {
+      "slices": 32,
+      "pos_slices": 7,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_c3769f3a_ID_32fc557515": {
+      "slices": 30,
+      "pos_slices": 11,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_a72de500_ID_87b2b4fc60": {
+      "slices": 30,
+      "pos_slices": 4,
+      "subtypes": [
+        "IVH"
+      ]
+    },
+    "ID_6c70bf18_ID_3915fd7d41": {
+      "slices": 30,
+      "pos_slices": 9,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_0237f3c9_ID_40015688b9": {
+      "slices": 28,
+      "pos_slices": 7,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_9ba3be10_ID_1c4e9f3c40": {
+      "slices": 36,
+      "pos_slices": 4,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_df3f0a7d_ID_fbcdf807a8": {
+      "slices": 32,
+      "pos_slices": 19,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_d039497d_ID_da6cc2290f": {
+      "slices": 38,
+      "pos_slices": 7,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_5f53ab26_ID_f1c7d54a53": {
+      "slices": 32,
+      "pos_slices": 17,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_7e8279ce_ID_75522ba124": {
+      "slices": 40,
+      "pos_slices": 4,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_5ca2154a_ID_d4984e0dcc": {
+      "slices": 40,
+      "pos_slices": 13,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_16ed917a_ID_145f184354": {
+      "slices": 32,
+      "pos_slices": 13,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_94271e7f_ID_50fb725eb8": {
+      "slices": 32,
+      "pos_slices": 8,
+      "subtypes": [
+        "IPH",
+        "SDH"
+      ]
+    },
+    "ID_96967deb_ID_5d782e9379": {
+      "slices": 35,
+      "pos_slices": 1,
+      "subtypes": [
+        "IPH"
+      ]
+    },
+    "ID_af8ac3ec_ID_81a154bf08": {
+      "slices": 32,
+      "pos_slices": 14,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_4ec93c83_ID_b76a4106f8": {
+      "slices": 46,
+      "pos_slices": 19,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_6a6976ae_ID_97ae10a424": {
+      "slices": 32,
+      "pos_slices": 4,
+      "subtypes": [
+        "EDH"
+      ]
+    },
+    "ID_92ef7cc4_ID_b0c4006e93": {
+      "slices": 36,
+      "pos_slices": 19,
+      "subtypes": [
+        "EDH",
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_6fcd55db_ID_9ed6724906": {
+      "slices": 28,
+      "pos_slices": 7,
+      "subtypes": [
+        "IVH"
+      ]
+    },
+    "ID_a2ddcdfe_ID_d7aedfd21f": {
+      "slices": 35,
+      "pos_slices": 18,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_a84354a5_ID_6699da85bb": {
+      "slices": 32,
+      "pos_slices": 15,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_0492041f_ID_b4fcf2f799": {
+      "slices": 36,
+      "pos_slices": 13,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_7db5845a_ID_0c7cd6982b": {
+      "slices": 36,
+      "pos_slices": 16,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SDH"
+      ]
+    },
+    "ID_f1a342da_ID_13d6f969d2": {
+      "slices": 34,
+      "pos_slices": 7,
+      "subtypes": [
+        "SAH"
+      ]
+    },
+    "ID_ad252872_ID_74f728bfad": {
+      "slices": 32,
+      "pos_slices": 3,
+      "subtypes": [
+        "SAH"
+      ]
+    },
+    "ID_83a07ec6_ID_ef148a90ed": {
+      "slices": 32,
+      "pos_slices": 20,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH"
+      ]
+    },
+    "ID_ec8a7bf0_ID_c853ba89ce": {
+      "slices": 32,
+      "pos_slices": 20,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_0c3eef60_ID_6994ad7df0": {
+      "slices": 35,
+      "pos_slices": 8,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_2a42d0a0_ID_5fdc3fb915": {
+      "slices": 32,
+      "pos_slices": 20,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_87385103_ID_684afaed55": {
+      "slices": 40,
+      "pos_slices": 12,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_8d326f80_ID_87b6843dde": {
+      "slices": 32,
+      "pos_slices": 9,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_e566ef9b_ID_439ce9720b": {
+      "slices": 32,
+      "pos_slices": 16,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_338738e7_ID_0808281b2a": {
+      "slices": 28,
+      "pos_slices": 19,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_10c64d22_ID_4c9aad31ca": {
+      "slices": 32,
+      "pos_slices": 21,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_d3d99dce_ID_cd10b6aba1": {
+      "slices": 28,
+      "pos_slices": 8,
+      "subtypes": [
+        "IPH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_199b0a56_ID_09e623e993": {
+      "slices": 38,
+      "pos_slices": 14,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_09b33fc4_ID_bcd322d4ed": {
+      "slices": 28,
+      "pos_slices": 16,
+      "subtypes": [
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_d8e67d7d_ID_c182bd8176": {
+      "slices": 36,
+      "pos_slices": 4,
+      "subtypes": [
+        "IPH",
+        "IVH"
+      ]
+    },
+    "ID_029ebbea_ID_563afa0901": {
+      "slices": 28,
+      "pos_slices": 19,
+      "subtypes": [
+        "IPH",
+        "SDH"
+      ]
+    },
+    "ID_9e0eaeeb_ID_be5b5b11eb": {
+      "slices": 32,
+      "pos_slices": 7,
+      "subtypes": [
+        "IPH",
+        "SAH"
+      ]
+    },
+    "ID_7f065b1e_ID_4c02f6eaaf": {
+      "slices": 32,
+      "pos_slices": 12,
+      "subtypes": [
+        "SDH"
+      ]
+    },
+    "ID_ab1ba874_ID_0c1c9bf0ae": {
+      "slices": 33,
+      "pos_slices": 16,
+      "subtypes": [
+        "EDH",
+        "IPH",
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_e393f193_ID_c81bf5f45d": {
+      "slices": 30,
+      "pos_slices": 9,
+      "subtypes": [
+        "IVH",
+        "SAH",
+        "SDH"
+      ]
+    },
+    "ID_196704db_ID_4eb6296376": {
+      "slices": 32,
+      "pos_slices": 2,
+      "subtypes": [
+        "IVH"
+      ]
+    }
+  }
+}

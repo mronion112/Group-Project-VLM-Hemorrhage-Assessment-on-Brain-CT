@@ -1,0 +1,388 @@
+name,compress_size,file_size,compress_type,header_offset
+label_192/,0,0,0,0
+label_192/ground truths/,0,0,0,68
+label_192/ground truths/ID_eb093f57_ID_0e2b33b4c9.nii.gz,12014,30765,8,150
+label_192/ground truths/ID_6c85adda_ID_86bc0ab248.nii.gz,810,16857,8,12278
+label_192/ground truths/ID_977da27d_ID_7ca7e2a2e4.nii.gz,7386,29903,8,13202
+label_192/ground truths/ID_90233c1a_ID_51c49c9abf.nii.gz,1832,15834,8,20702
+label_192/ground truths/ID_552aabb9_ID_152fdcf86e.nii.gz,3409,18257,8,22648
+label_192/ground truths/ID_b1d5d5e8_ID_4cfa36b63f.nii.gz,4110,20875,8,26171
+label_192/ground truths/ID_5adb32dc_ID_35dd6d3d56.nii.gz,4145,20033,8,30395
+label_192/ground truths/ID_2872834a_ID_542e9d00da.nii.gz,1221,17325,8,34654
+label_192/ground truths/ID_727c946e_ID_e1fd84171a.nii.gz,819,15814,8,35989
+label_192/ground truths/ID_88dbe13f_ID_01c5078fbf.nii.gz,3504,21272,8,36922
+label_192/ground truths/ID_87e60d98_ID_0c2d2758ae.nii.gz,1550,15950,8,40540
+label_192/ground truths/ID_69b19057_ID_44d0da38f2.nii.gz,25882,40152,8,42204
+label_192/ground truths/ID_693f2d48_ID_06a88c0e8b.nii.gz,2025,15980,8,68200
+label_192/ground truths/ID_2e21c3f3_ID_bc8f99a0cc.nii.gz,2542,19221,8,70339
+label_192/ground truths/ID_9cc1c1a0_ID_8fb44d82d0.nii.gz,1768,17760,8,72995
+label_192/ground truths/ID_c91d516c_ID_2d2f3d2953.nii.gz,2432,16518,8,74877
+label_192/ground truths/ID_c9d6fdc6_ID_7f09be285d.nii.gz,7878,27248,8,77423
+label_192/ground truths/ID_39702b69_ID_167ab8c629.nii.gz,2769,18572,8,85415
+label_192/ground truths/ID_041e6601_ID_1fa1d20bba.nii.gz,3731,21204,8,88298
+label_192/ground truths/ID_8e8df8c0_ID_857231e0c6.nii.gz,2236,18254,8,92143
+label_192/ground truths/ID_3bda60be_ID_067209cc9a.nii.gz,3000,22931,8,94493
+label_192/ground truths/ID_aaf2973d_ID_4002bc3ced.nii.gz,2866,14871,8,97607
+label_192/ground truths/ID_6caf8d60_ID_3634a47122.nii.gz,338,20542,8,100587
+label_192/ground truths/ID_56983eda_ID_a1eb0918d6.nii.gz,5570,21309,8,101039
+label_192/ground truths/ID_96cd5341_ID_41b80bd3ec.nii.gz,21289,34372,8,106723
+label_192/ground truths/ID_3e481fc5_ID_750530c215.nii.gz,909,17087,8,128126
+label_192/ground truths/ID_981d95a4_ID_ec08553ddc.nii.gz,5449,23854,8,129149
+label_192/ground truths/ID_e1d9fe9d_ID_f73aea5186.nii.gz,3867,17851,8,134712
+label_192/ground truths/ID_d02f2ee1_ID_a732858fcd.nii.gz,788,15848,8,138693
+label_192/ground truths/ID_b14c7e8b_ID_fe3a6804e3.nii.gz,1662,17759,8,139595
+label_192/ground truths/ID_5e405f44_ID_7a773f615f.nii.gz,2422,19327,8,141371
+label_192/ground truths/ID_b972b07f_ID_b5ace7f563.nii.gz,6773,22675,8,143907
+label_192/ground truths/ID_8d914da6_ID_b4eb9c8234.nii.gz,558,20691,8,150794
+label_192/ground truths/ID_9ed18606_ID_8cfe740d83.nii.gz,8712,23925,8,151466
+label_192/ground truths/ID_ba3a77dd_ID_70715be365.nii.gz,4951,20632,8,160292
+label_192/ground truths/ID_58d2ebfa_ID_76487f508f.nii.gz,2265,21513,8,165357
+label_192/ground truths/ID_eb5a964a_ID_c2f5350a3f.nii.gz,1866,18759,8,167736
+label_192/ground truths/ID_a40e10b0_ID_18c55dad14.nii.gz,7266,21530,8,169716
+label_192/ground truths/ID_790acb3f_ID_c294f81468.nii.gz,5853,23621,8,177096
+label_192/ground truths/ID_089596a9_ID_ea71b57820.nii.gz,633,20736,8,183063
+label_192/ground truths/ID_596dfbc1_ID_fe7dab2602.nii.gz,2723,20150,8,183810
+label_192/ground truths/ID_181aab15_ID_062634d043.nii.gz,4497,18578,8,186647
+label_192/ground truths/ID_f335b6db_ID_d180629430.nii.gz,6478,28126,8,191258
+label_192/ground truths/ID_e05b3047_ID_3d78428b2d.nii.gz,4101,22522,8,197850
+label_192/ground truths/ID_80b8d734_ID_f599f2d14b.nii.gz,922,17972,8,202065
+label_192/ground truths/ID_d29d246b_ID_6121b401e7.nii.gz,15847,32349,8,203101
+label_192/ground truths/ID_a1703be5_ID_d0e02f0443.nii.gz,1183,17285,8,219062
+label_192/ground truths/ID_d79fa3ff_ID_90d02c54ba.nii.gz,4315,21410,8,220359
+label_192/ground truths/ID_4e227c9c_ID_d8607fa88e.nii.gz,2687,17655,8,224788
+label_192/ground truths/ID_fb6d0135_ID_497840f16e.nii.gz,2887,16816,8,227589
+label_192/ground truths/ID_4681a956_ID_5b133aa2c0.nii.gz,6031,19671,8,230590
+label_192/ground truths/ID_73cae446_ID_852cb06998.nii.gz,1972,17947,8,236735
+label_192/ground truths/ID_f4795940_ID_6317a06429.nii.gz,9488,25612,8,238821
+label_192/ground truths/ID_5910d129_ID_094eb98167.nii.gz,5972,22826,8,248423
+label_192/ground truths/ID_daf22e49_ID_bf76e84f8d.nii.gz,4542,20612,8,254509
+label_192/ground truths/ID_2334b45f_ID_9f31e831ac.nii.gz,13666,34539,8,259165
+label_192/ground truths/ID_98fcfe52_ID_a8bbf4336d.nii.gz,620,16690,8,272945
+label_192/ground truths/ID_a429fd9a_ID_2eabc43f3d.nii.gz,347,16483,8,273679
+label_192/ground truths/ID_b79a2d4a_ID_710cdb6530.nii.gz,1205,20289,8,274140
+label_192/ground truths/ID_1cbe2853_ID_37afefdc7c.nii.gz,1595,17677,8,275459
+label_192/ground truths/ID_3dab46e7_ID_e837f87e46.nii.gz,4504,19666,8,277168
+label_192/ground truths/ID_2949cdc6_ID_dcb864c93f.nii.gz,838,14848,8,281786
+label_192/ground truths/ID_05331dc6_ID_47213b7e2e.nii.gz,13573,30320,8,282738
+label_192/ground truths/ID_6874ab42_ID_209e53bf66.nii.gz,6349,25616,8,296425
+label_192/ground truths/ID_47aa2b3a_ID_95a9953aba.nii.gz,363,12444,8,302888
+label_192/ground truths/ID_98450f26_ID_8d66ffdc94.nii.gz,708,16732,8,303365
+label_192/ground truths/ID_e714812a_ID_11a3b1afdc.nii.gz,1006,18009,8,304187
+label_192/ground truths/ID_39e94772_ID_f1a5ef6a24.nii.gz,1484,19903,8,305307
+label_192/ground truths/ID_b92014da_ID_a9310805a0.nii.gz,618,16689,8,306905
+label_192/ground truths/ID_c5479170_ID_6cc8f5463a.nii.gz,2084,18222,8,307637
+label_192/ground truths/ID_41a55df8_ID_ca0abe844a.nii.gz,961,17977,8,309835
+label_192/ground truths/ID_18747540_ID_1eb1de9633.nii.gz,4134,21799,8,310910
+label_192/ground truths/ID_495ac92a_ID_4daa7b9cc7.nii.gz,3727,23053,8,315158
+label_192/ground truths/ID_ca7bbeab_ID_228e9cbe5c.nii.gz,12301,28630,8,318999
+label_192/ground truths/ID_d9675573_ID_02237f7694.nii.gz,1958,21971,8,331414
+label_192/ground truths/ID_9dce269b_ID_4191982e02.nii.gz,14309,36761,8,333486
+label_192/ground truths/ID_e3db11e0_ID_1863688c5b.nii.gz,3660,21811,8,347909
+label_192/ground truths/ID_19d26713_ID_9f54cdc920.nii.gz,528,16631,8,351683
+label_192/ground truths/ID_811a274b_ID_fa1c9402fb.nii.gz,4266,20635,8,352325
+label_192/ground truths/ID_ea687366_ID_452c5f1f8c.nii.gz,8309,28072,8,356705
+label_192/ground truths/ID_1653b22b_ID_c35cd0de73.nii.gz,3362,19130,8,365128
+label_192/ground truths/ID_95c4a59c_ID_47aa7ea02b.nii.gz,7641,21191,8,368604
+label_192/ground truths/ID_9a8ad2df_ID_0ec627c99a.nii.gz,6950,30111,8,376359
+label_192/ground truths/ID_90b88b8b_ID_8d39c61ccd.nii.gz,805,15924,8,383423
+label_192/ground truths/ID_cdaa21cb_ID_a5f7ae30f1.nii.gz,1040,19046,8,384342
+label_192/ground truths/ID_66a9a60e_ID_3a4f389a07.nii.gz,18206,39666,8,385496
+label_192/ground truths/ID_b85bdbe9_ID_cb52cd5d53.nii.gz,5806,27088,8,403816
+label_192/ground truths/ID_0b10cbee_ID_f91d6a7cd2.nii.gz,742,16792,8,409736
+label_192/ground truths/ID_cb4c887c_ID_ec2a4643f3.nii.gz,2380,18351,8,410592
+label_192/ground truths/ID_c488fbef_ID_ae4af6dd21.nii.gz,3041,20825,8,413086
+label_192/ground truths/ID_b367130b_ID_debc60a9ba.nii.gz,4392,20429,8,416241
+label_192/ground truths/ID_d2deede6_ID_799247e354.nii.gz,596,18189,8,420747
+label_192/ground truths/ID_997f19cf_ID_8fc04eb1f5.nii.gz,1754,17623,8,421457
+label_192/ground truths/ID_02f779fb_ID_c4d7f33559.nii.gz,3104,18820,8,423325
+label_192/ground truths/ID_69e721e0_ID_a6f36605d7.nii.gz,1155,18460,8,426543
+label_192/ground truths/ID_3be7cc35_ID_cf2643c5a8.nii.gz,9420,26746,8,427812
+label_192/ground truths/ID_75448f16_ID_780b14c9d7.nii.gz,11099,26182,8,437346
+label_192/ground truths/ID_1879071b_ID_4b8e1377e7.nii.gz,4630,23337,8,448559
+label_192/ground truths/ID_e8691c40_ID_4e6812b21a.nii.gz,1690,17782,8,453303
+label_192/ground truths/ID_02b882cc_ID_a4892e60ae.nii.gz,8774,24794,8,455107
+label_192/ground truths/ID_268b38fe_ID_d747ae3ffb.nii.gz,13492,29146,8,463995
+label_192/ground truths/ID_56faaf6f_ID_dd8f688dff.nii.gz,9682,33294,8,477601
+label_192/ground truths/ID_ed6dfff7_ID_f54a5fd2c8.nii.gz,2993,18931,8,487397
+label_192/ground truths/ID_7860208e_ID_f68c193b69.nii.gz,4880,23970,8,490504
+label_192/ground truths/ID_63862d24_ID_24f0f2ff02.nii.gz,3084,33894,8,495498
+label_192/ground truths/ID_eb39f236_ID_d7edccdb08.nii.gz,9178,22685,8,498696
+label_192/ground truths/ID_b3a33085_ID_175a5c4119.nii.gz,1816,17766,8,507988
+label_192/ground truths/ID_a768755c_ID_3541b002ac.nii.gz,2694,20722,8,509918
+label_192/ground truths/ID_751df220_ID_4c26128a8d.nii.gz,3588,19417,8,512726
+label_192/ground truths/ID_9631ec18_ID_c205d02b10.nii.gz,1274,17306,8,516428
+label_192/ground truths/ID_4a16396b_ID_1f3e0c2c5c.nii.gz,6910,21949,8,517816
+label_192/ground truths/ID_346de481_ID_2e8fea0d9a.nii.gz,7158,25435,8,524840
+label_192/ground truths/ID_10beb45f_ID_7184e80f09.nii.gz,619,14667,8,532112
+label_192/ground truths/ID_5117f9bf_ID_14d96feecf.nii.gz,1426,19394,8,532845
+label_192/ground truths/ID_ccbe16e6_ID_706deb5ba2.nii.gz,4215,22152,8,534385
+label_192/ground truths/ID_a554892c_ID_7d5bccea0e.nii.gz,2064,18011,8,538714
+label_192/ground truths/ID_14058625_ID_527c581583.nii.gz,1564,19640,8,540892
+label_192/ground truths/ID_07365cde_ID_8e661b8f07.nii.gz,994,16063,8,542570
+label_192/ground truths/ID_6bb6dd02_ID_dd6370b417.nii.gz,1301,17250,8,543678
+label_192/ground truths/ID_c1e1c4ef_ID_521bc36497.nii.gz,7428,27153,8,545093
+label_192/ground truths/ID_85f42dd5_ID_a0ef1a9eaf.nii.gz,1078,19078,8,552635
+label_192/ground truths/ID_acaa9bd1_ID_02fe96388e.nii.gz,456,16561,8,553827
+label_192/ground truths/ID_3343ddf2_ID_fddff2e9c1.nii.gz,910,12868,8,554397
+label_192/ground truths/ID_e2e2e522_ID_7b7b5543dc.nii.gz,11996,26313,8,555421
+label_192/ground truths/ID_eac5718d_ID_5a2b7690df.nii.gz,4983,24369,8,567531
+label_192/ground truths/ID_c08a7b51_ID_b98f437f69.nii.gz,3404,19681,8,572628
+label_192/ground truths/ID_4e25e744_ID_b0275c19cd.nii.gz,3108,20201,8,576146
+label_192/ground truths/ID_50b54af0_ID_fbeeed4370.nii.gz,1619,17485,8,579368
+label_192/ground truths/ID_253e809f_ID_095d8c391f.nii.gz,3955,18716,8,581101
+label_192/ground truths/ID_82cfc6a8_ID_da93401499.nii.gz,1323,21385,8,585170
+label_192/ground truths/ID_b80aec97_ID_2aa91505e6.nii.gz,3977,19830,8,586607
+label_192/ground truths/ID_a9b3fedc_ID_3850bef0a3.nii.gz,12529,27461,8,590698
+label_192/ground truths/ID_2db7ee14_ID_2591d00dfc.nii.gz,723,19291,8,603341
+label_192/ground truths/ID_30d19531_ID_cf607a5cd7.nii.gz,23783,39298,8,604178
+label_192/ground truths/ID_39bdd84b_ID_a318f304e4.nii.gz,585,15631,8,628075
+label_192/ground truths/ID_dd3d7720_ID_6a88b9c0eb.nii.gz,682,15743,8,628774
+label_192/ground truths/ID_df935041_ID_32b8592d2c.nii.gz,1823,22264,8,629570
+label_192/ground truths/ID_db89259c_ID_2c20aff0f9.nii.gz,550,17148,8,631507
+label_192/ground truths/ID_fcbe7eda_ID_5726e1c630.nii.gz,666,16720,8,632171
+label_192/ground truths/ID_2931ca43_ID_2a2b28e0ab.nii.gz,1184,17257,8,632951
+label_192/ground truths/ID_55742eb7_ID_7d5ad548ca.nii.gz,2016,18031,8,634249
+label_192/ground truths/ID_faa3c13d_ID_c31106b8dc.nii.gz,4131,18944,8,636379
+label_192/ground truths/ID_7d5594ff_ID_cb535d3e8b.nii.gz,2837,18597,8,640624
+label_192/ground truths/ID_0c6b97a9_ID_6011bb9ce8.nii.gz,5020,20486,8,643575
+label_192/ground truths/ID_77cd921b_ID_e0d0a5f299.nii.gz,6459,23164,8,648709
+label_192/ground truths/ID_2db7ee14_ID_f27e38fdfd.nii.gz,695,17752,8,655282
+label_192/ground truths/ID_a9fe41fd_ID_ba000cea10.nii.gz,510,19652,8,656091
+label_192/ground truths/ID_46cd34ad_ID_3003623499.nii.gz,1485,17441,8,656715
+label_192/ground truths/ID_cf8f428f_ID_61ec5a3e22.nii.gz,1671,17721,8,658314
+label_192/ground truths/ID_c3769f3a_ID_32fc557515.nii.gz,5879,21240,8,660099
+label_192/ground truths/ID_a72de500_ID_87b2b4fc60.nii.gz,414,15518,8,666092
+label_192/ground truths/ID_6c70bf18_ID_3915fd7d41.nii.gz,1871,16832,8,666620
+label_192/ground truths/ID_0237f3c9_ID_40015688b9.nii.gz,1501,15550,8,668605
+label_192/ground truths/ID_9ba3be10_ID_1c4e9f3c40.nii.gz,480,18596,8,670220
+label_192/ground truths/ID_df3f0a7d_ID_fbcdf807a8.nii.gz,9680,25569,8,670814
+label_192/ground truths/ID_d039497d_ID_da6cc2290f.nii.gz,693,19875,8,680608
+label_192/ground truths/ID_5f53ab26_ID_f1c7d54a53.nii.gz,5135,21183,8,681415
+label_192/ground truths/ID_7e8279ce_ID_75522ba124.nii.gz,1130,21217,8,686664
+label_192/ground truths/ID_5ca2154a_ID_d4984e0dcc.nii.gz,2611,23689,8,687908
+label_192/ground truths/ID_16ed917a_ID_145f184354.nii.gz,3706,19558,8,690633
+label_192/ground truths/ID_94271e7f_ID_50fb725eb8.nii.gz,2514,18560,8,694453
+label_192/ground truths/ID_96967deb_ID_5d782e9379.nii.gz,308,17988,8,697081
+label_192/ground truths/ID_af8ac3ec_ID_81a154bf08.nii.gz,4124,22079,8,697503
+label_192/ground truths/ID_4ec93c83_ID_b76a4106f8.nii.gz,5929,29067,8,701741
+label_192/ground truths/ID_6a6976ae_ID_97ae10a424.nii.gz,855,16982,8,707784
+label_192/ground truths/ID_92ef7cc4_ID_b0c4006e93.nii.gz,5951,24514,8,708753
+label_192/ground truths/ID_6fcd55db_ID_9ed6724906.nii.gz,2443,16405,8,714818
+label_192/ground truths/ID_a2ddcdfe_ID_d7aedfd21f.nii.gz,12081,29141,8,717375
+label_192/ground truths/ID_a84354a5_ID_6699da85bb.nii.gz,2530,19763,8,729570
+label_192/ground truths/ID_0492041f_ID_b4fcf2f799.nii.gz,1970,19973,8,732214
+label_192/ground truths/ID_7db5845a_ID_0c7cd6982b.nii.gz,2745,21100,8,734298
+label_192/ground truths/ID_f1a342da_ID_13d6f969d2.nii.gz,1209,18205,8,737157
+label_192/ground truths/ID_ad252872_ID_74f728bfad.nii.gz,412,16528,8,738480
+label_192/ground truths/ID_83a07ec6_ID_ef148a90ed.nii.gz,11626,27254,8,739006
+label_192/ground truths/ID_ec8a7bf0_ID_c853ba89ce.nii.gz,5722,22204,8,750746
+label_192/ground truths/ID_0c3eef60_ID_6994ad7df0.nii.gz,1384,18970,8,756582
+label_192/ground truths/ID_2a42d0a0_ID_5fdc3fb915.nii.gz,5685,23871,8,758080
+label_192/ground truths/ID_87385103_ID_684afaed55.nii.gz,7811,27789,8,763879
+label_192/ground truths/ID_8d326f80_ID_87b6843dde.nii.gz,1597,17618,8,771804
+label_192/ground truths/ID_e566ef9b_ID_439ce9720b.nii.gz,2418,20488,8,773515
+label_192/ground truths/ID_338738e7_ID_0808281b2a.nii.gz,2768,16506,8,776047
+label_192/ground truths/ID_10c64d22_ID_4c9aad31ca.nii.gz,11491,27775,8,778929
+label_192/ground truths/ID_d3d99dce_ID_cd10b6aba1.nii.gz,1306,15233,8,790534
+label_192/ground truths/ID_199b0a56_ID_09e623e993.nii.gz,3170,22011,8,791954
+label_192/ground truths/ID_09b33fc4_ID_bcd322d4ed.nii.gz,6825,20844,8,795238
+label_192/ground truths/ID_d8e67d7d_ID_c182bd8176.nii.gz,376,18532,8,802177
+label_192/ground truths/ID_029ebbea_ID_563afa0901.nii.gz,5139,20987,8,802667
+label_192/ground truths/ID_9e0eaeeb_ID_be5b5b11eb.nii.gz,771,16820,8,807920
+label_192/ground truths/ID_7f065b1e_ID_4c02f6eaaf.nii.gz,2808,19159,8,808805
+label_192/ground truths/ID_ab1ba874_ID_0c1c9bf0ae.nii.gz,7970,24710,8,811727
+label_192/ground truths/ID_e393f193_ID_c81bf5f45d.nii.gz,1582,16608,8,819811
+label_192/ground truths/ID_196704db_ID_4eb6296376.nii.gz,320,16461,8,821507
+label_192/images/,0,0,0,821941
+label_192/images/ID_eb093f57_ID_0e2b33b4c9.nii.gz,9846273,9851032,8,822016
+label_192/images/ID_6c85adda_ID_86bc0ab248.nii.gz,6664008,6667724,8,10668396
+label_192/images/ID_977da27d_ID_7ca7e2a2e4.nii.gz,10456120,10471364,8,17332511
+label_192/images/ID_90233c1a_ID_51c49c9abf.nii.gz,4672512,4679218,8,27788738
+label_192/images/ID_552aabb9_ID_152fdcf86e.nii.gz,7369822,7373147,8,32461357
+label_192/images/ID_b1d5d5e8_ID_4cfa36b63f.nii.gz,7991141,7994984,8,39831286
+label_192/images/ID_5adb32dc_ID_35dd6d3d56.nii.gz,6911772,6920354,8,47822534
+label_192/images/ID_2872834a_ID_542e9d00da.nii.gz,7423334,7426208,8,54734413
+label_192/images/ID_727c946e_ID_e1fd84171a.nii.gz,4972119,4972350,8,62157854
+label_192/images/ID_88dbe13f_ID_01c5078fbf.nii.gz,7818814,7829509,8,67130080
+label_192/images/ID_87e60d98_ID_0c2d2758ae.nii.gz,5825931,5829636,8,74949001
+label_192/images/ID_69b19057_ID_44d0da38f2.nii.gz,8102650,8106922,8,80775039
+label_192/images/ID_693f2d48_ID_06a88c0e8b.nii.gz,6744518,6746946,8,88877796
+label_192/images/ID_2e21c3f3_ID_bc8f99a0cc.nii.gz,6527559,6539906,8,95622421
+label_192/images/ID_9cc1c1a0_ID_8fb44d82d0.nii.gz,7327355,7332289,8,102150087
+label_192/images/ID_c91d516c_ID_2d2f3d2953.nii.gz,6013491,6018075,8,109477549
+label_192/images/ID_c9d6fdc6_ID_7f09be285d.nii.gz,9429508,9436454,8,115491147
+label_192/images/ID_39702b69_ID_167ab8c629.nii.gz,8250192,8254558,8,124920762
+label_192/images/ID_041e6601_ID_1fa1d20bba.nii.gz,7416144,7422478,8,133171061
+label_192/images/ID_8e8df8c0_ID_857231e0c6.nii.gz,6528194,6539636,8,140587312
+label_192/images/ID_3bda60be_ID_067209cc9a.nii.gz,9364655,9367009,8,147115613
+label_192/images/ID_aaf2973d_ID_4002bc3ced.nii.gz,5458514,5465480,8,156480375
+label_192/images/ID_6caf8d60_ID_3634a47122.nii.gz,7843938,7846679,8,161938996
+label_192/images/ID_56983eda_ID_a1eb0918d6.nii.gz,7071033,7073831,8,169783041
+label_192/images/ID_96cd5341_ID_41b80bd3ec.nii.gz,6208951,6212437,8,176854181
+label_192/images/ID_3e481fc5_ID_750530c215.nii.gz,6449090,6452782,8,183063239
+label_192/images/ID_981d95a4_ID_ec08553ddc.nii.gz,7882491,7884400,8,189512436
+label_192/images/ID_e1d9fe9d_ID_f73aea5186.nii.gz,5090080,5102232,8,197395034
+label_192/images/ID_d02f2ee1_ID_a732858fcd.nii.gz,7525149,7527839,8,202485221
+label_192/images/ID_b14c7e8b_ID_fe3a6804e3.nii.gz,6717946,6722552,8,210010477
+label_192/images/ID_5e405f44_ID_7a773f615f.nii.gz,8568046,8574984,8,216728530
+label_192/images/ID_b972b07f_ID_b5ace7f563.nii.gz,6537909,6548772,8,225296683
+label_192/images/ID_8d914da6_ID_b4eb9c8234.nii.gz,9012284,9016215,8,231834699
+label_192/images/ID_9ed18606_ID_8cfe740d83.nii.gz,5752441,5755383,8,240847090
+label_192/images/ID_ba3a77dd_ID_70715be365.nii.gz,6838688,6841221,8,246599638
+label_192/images/ID_58d2ebfa_ID_76487f508f.nii.gz,8746259,8754666,8,253438433
+label_192/images/ID_eb5a964a_ID_c2f5350a3f.nii.gz,7466945,7473236,8,262184799
+label_192/images/ID_a40e10b0_ID_18c55dad14.nii.gz,6569380,6570963,8,269651851
+label_192/images/ID_790acb3f_ID_c294f81468.nii.gz,8454563,8457883,8,276221338
+label_192/images/ID_089596a9_ID_ea71b57820.nii.gz,7303069,7307572,8,284676008
+label_192/images/ID_596dfbc1_ID_fe7dab2602.nii.gz,9100940,9107337,8,291979184
+label_192/images/ID_181aab15_ID_062634d043.nii.gz,6072348,6074326,8,301080231
+label_192/images/ID_f335b6db_ID_d180629430.nii.gz,7543377,7546085,8,307152686
+label_192/images/ID_e05b3047_ID_3d78428b2d.nii.gz,7604430,7607916,8,314696170
+label_192/images/ID_80b8d734_ID_f599f2d14b.nii.gz,8922020,8927277,8,322300707
+label_192/images/ID_d29d246b_ID_6121b401e7.nii.gz,7897275,7905430,8,331222834
+label_192/images/ID_a1703be5_ID_d0e02f0443.nii.gz,6464479,6467377,8,339120216
+label_192/images/ID_d79fa3ff_ID_90d02c54ba.nii.gz,8827957,8833012,8,345584802
+label_192/images/ID_4e227c9c_ID_d8607fa88e.nii.gz,6756269,6758903,8,354412866
+label_192/images/ID_fb6d0135_ID_497840f16e.nii.gz,6164583,6171577,8,361169242
+label_192/images/ID_4681a956_ID_5b133aa2c0.nii.gz,6147201,6151793,8,367333932
+label_192/images/ID_73cae446_ID_852cb06998.nii.gz,7076459,7082787,8,373481240
+label_192/images/ID_f4795940_ID_6317a06429.nii.gz,6525240,6531439,8,380557806
+label_192/images/ID_5910d129_ID_094eb98167.nii.gz,9320216,9323620,8,387083153
+label_192/images/ID_daf22e49_ID_bf76e84f8d.nii.gz,6794894,6802684,8,396403476
+label_192/images/ID_2334b45f_ID_9f31e831ac.nii.gz,10944762,10948645,8,403198477
+label_192/images/ID_98fcfe52_ID_a8bbf4336d.nii.gz,8261783,8267924,8,414143346
+label_192/images/ID_a429fd9a_ID_2eabc43f3d.nii.gz,5906022,5908923,8,422405236
+label_192/images/ID_b79a2d4a_ID_710cdb6530.nii.gz,9535751,9542681,8,428311365
+label_192/images/ID_1cbe2853_ID_37afefdc7c.nii.gz,6641873,6645402,8,437847223
+label_192/images/ID_3dab46e7_ID_e837f87e46.nii.gz,6924142,6926271,8,444489203
+label_192/images/ID_2949cdc6_ID_dcb864c93f.nii.gz,5365512,5377197,8,451413452
+label_192/images/ID_05331dc6_ID_47213b7e2e.nii.gz,6720822,6729696,8,456779071
+label_192/images/ID_6874ab42_ID_209e53bf66.nii.gz,9022709,9032285,8,463500000
+label_192/images/ID_47aa2b3a_ID_95a9953aba.nii.gz,5179657,5182057,8,472522816
+label_192/images/ID_98450f26_ID_8d66ffdc94.nii.gz,6928250,6932858,8,477702580
+label_192/images/ID_e714812a_ID_11a3b1afdc.nii.gz,9111617,9115988,8,484630937
+label_192/images/ID_39e94772_ID_f1a5ef6a24.nii.gz,8230456,8233304,8,493742661
+label_192/images/ID_b92014da_ID_a9310805a0.nii.gz,6997901,7000457,8,501973224
+label_192/images/ID_c5479170_ID_6cc8f5463a.nii.gz,7224790,7231607,8,508971232
+label_192/images/ID_41a55df8_ID_ca0abe844a.nii.gz,7473965,7483935,8,516196129
+label_192/images/ID_18747540_ID_1eb1de9633.nii.gz,7443819,7447616,8,523670201
+label_192/images/ID_495ac92a_ID_4daa7b9cc7.nii.gz,9216244,9219925,8,531114127
+label_192/images/ID_ca7bbeab_ID_228e9cbe5c.nii.gz,6949403,6956209,8,540330478
+label_192/images/ID_d9675573_ID_02237f7694.nii.gz,9198106,9201363,8,547279988
+label_192/images/ID_9dce269b_ID_4191982e02.nii.gz,11021577,11030891,8,556478201
+label_192/images/ID_e3db11e0_ID_1863688c5b.nii.gz,7776438,7782358,8,567499885
+label_192/images/ID_19d26713_ID_9f54cdc920.nii.gz,6999832,7003216,8,575276430
+label_192/images/ID_811a274b_ID_fa1c9402fb.nii.gz,7632229,7635798,8,582276369
+label_192/images/ID_ea687366_ID_452c5f1f8c.nii.gz,10020966,10025228,8,589908705
+label_192/images/ID_1653b22b_ID_c35cd0de73.nii.gz,6968822,6971698,8,599929778
+label_192/images/ID_95c4a59c_ID_47aa7ea02b.nii.gz,6342224,6346887,8,606898707
+label_192/images/ID_9a8ad2df_ID_0ec627c99a.nii.gz,8254235,8258277,8,613241038
+label_192/images/ID_90b88b8b_ID_8d39c61ccd.nii.gz,7262116,7267780,8,621495380
+label_192/images/ID_cdaa21cb_ID_a5f7ae30f1.nii.gz,7926035,7928934,8,628757603
+label_192/images/ID_66a9a60e_ID_3a4f389a07.nii.gz,11265631,11273266,8,636683745
+label_192/images/ID_b85bdbe9_ID_cb52cd5d53.nii.gz,10377001,10384799,8,647949483
+label_192/images/ID_0b10cbee_ID_f91d6a7cd2.nii.gz,6782577,6786562,8,658326591
+label_192/images/ID_cb4c887c_ID_ec2a4643f3.nii.gz,6454002,6456168,8,665109275
+label_192/images/ID_c488fbef_ID_ae4af6dd21.nii.gz,8973942,8983208,8,671563384
+label_192/images/ID_b367130b_ID_debc60a9ba.nii.gz,7113160,7119694,8,680537433
+label_192/images/ID_d2deede6_ID_799247e354.nii.gz,8493741,8502645,8,687650700
+label_192/images/ID_997f19cf_ID_8fc04eb1f5.nii.gz,7251632,7256534,8,696144548
+label_192/images/ID_02f779fb_ID_c4d7f33559.nii.gz,7483863,7489456,8,703396287
+label_192/images/ID_69e721e0_ID_a6f36605d7.nii.gz,8042464,8045886,8,710880257
+label_192/images/ID_3be7cc35_ID_cf2643c5a8.nii.gz,7796179,7802037,8,718922828
+label_192/images/ID_75448f16_ID_780b14c9d7.nii.gz,6840367,6841890,8,726719114
+label_192/images/ID_1879071b_ID_4b8e1377e7.nii.gz,10539278,10545248,8,733559588
+label_192/images/ID_e8691c40_ID_4e6812b21a.nii.gz,7266096,7271288,8,744098973
+label_192/images/ID_02b882cc_ID_a4892e60ae.nii.gz,6036276,6051692,8,751365176
+label_192/images/ID_268b38fe_ID_d747ae3ffb.nii.gz,8425639,8436613,8,757401559
+label_192/images/ID_56faaf6f_ID_dd8f688dff.nii.gz,11344022,11349462,8,765827305
+label_192/images/ID_ed6dfff7_ID_f54a5fd2c8.nii.gz,6503118,6510876,8,777171434
+label_192/images/ID_7860208e_ID_f68c193b69.nii.gz,7754342,7756962,8,783674659
+label_192/images/ID_63862d24_ID_24f0f2ff02.nii.gz,13678764,13682659,8,791429108
+label_192/images/ID_eb39f236_ID_d7edccdb08.nii.gz,5882409,5885230,8,805107979
+label_192/images/ID_b3a33085_ID_175a5c4119.nii.gz,7141500,7143357,8,810990495
+label_192/images/ID_a768755c_ID_3541b002ac.nii.gz,7170668,7178080,8,818132102
+label_192/images/ID_751df220_ID_4c26128a8d.nii.gz,6930538,6932155,8,825302877
+label_192/images/ID_9631ec18_ID_c205d02b10.nii.gz,6826804,6829182,8,832233522
+label_192/images/ID_4a16396b_ID_1f3e0c2c5c.nii.gz,7561367,7563459,8,839060433
+label_192/images/ID_346de481_ID_2e8fea0d9a.nii.gz,7128954,7130066,8,846621907
+label_192/images/ID_10beb45f_ID_7184e80f09.nii.gz,6131917,6135020,8,853750968
+label_192/images/ID_5117f9bf_ID_14d96feecf.nii.gz,8822975,8834420,8,859882992
+label_192/images/ID_ccbe16e6_ID_706deb5ba2.nii.gz,6927168,6929852,8,868706074
+label_192/images/ID_a554892c_ID_7d5bccea0e.nii.gz,6854437,6857228,8,875633349
+label_192/images/ID_14058625_ID_527c581583.nii.gz,8836475,8843397,8,882487893
+label_192/images/ID_07365cde_ID_8e661b8f07.nii.gz,6849356,6852077,8,891324475
+label_192/images/ID_6bb6dd02_ID_dd6370b417.nii.gz,6632027,6634932,8,898173938
+label_192/images/ID_c1e1c4ef_ID_521bc36497.nii.gz,8325708,8330723,8,904806072
+label_192/images/ID_85f42dd5_ID_a0ef1a9eaf.nii.gz,9660018,9663146,8,913131887
+label_192/images/ID_acaa9bd1_ID_02fe96388e.nii.gz,6801410,6810811,8,922792012
+label_192/images/ID_3343ddf2_ID_fddff2e9c1.nii.gz,5392907,5394816,8,929593529
+label_192/images/ID_e2e2e522_ID_7b7b5543dc.nii.gz,5905459,5912379,8,934986543
+label_192/images/ID_eac5718d_ID_5a2b7690df.nii.gz,9620007,9626123,8,940892109
+label_192/images/ID_c08a7b51_ID_b98f437f69.nii.gz,7518757,7524146,8,950512223
+label_192/images/ID_4e25e744_ID_b0275c19cd.nii.gz,9059311,9063859,8,958031087
+label_192/images/ID_50b54af0_ID_fbeeed4370.nii.gz,8015593,8020349,8,967090505
+label_192/images/ID_253e809f_ID_095d8c391f.nii.gz,8195513,8196818,8,975106205
+label_192/images/ID_82cfc6a8_ID_da93401499.nii.gz,8573575,8574900,8,983301825
+label_192/images/ID_b80aec97_ID_2aa91505e6.nii.gz,6729920,6735153,8,991875507
+label_192/images/ID_a9b3fedc_ID_3850bef0a3.nii.gz,7487947,7497758,8,998605534
+label_192/images/ID_2db7ee14_ID_2591d00dfc.nii.gz,8248048,8257335,8,1006093588
+label_192/images/ID_30d19531_ID_cf607a5cd7.nii.gz,5345599,5360052,8,1014341743
+label_192/images/ID_39bdd84b_ID_a318f304e4.nii.gz,7576222,7582585,8,1019687449
+label_192/images/ID_dd3d7720_ID_6a88b9c0eb.nii.gz,6828478,6829899,8,1027263778
+label_192/images/ID_df935041_ID_32b8592d2c.nii.gz,8669523,8672824,8,1034092363
+label_192/images/ID_db89259c_ID_2c20aff0f9.nii.gz,7453302,7461561,8,1042761993
+label_192/images/ID_fcbe7eda_ID_5726e1c630.nii.gz,6881645,6883467,8,1050215402
+label_192/images/ID_2931ca43_ID_2a2b28e0ab.nii.gz,6423897,6425747,8,1057097154
+label_192/images/ID_55742eb7_ID_7d5ad548ca.nii.gz,7332185,7335507,8,1063521158
+label_192/images/ID_faa3c13d_ID_c31106b8dc.nii.gz,7102304,7115226,8,1070853450
+label_192/images/ID_7d5594ff_ID_cb535d3e8b.nii.gz,6274524,6289430,8,1077955861
+label_192/images/ID_0c6b97a9_ID_6011bb9ce8.nii.gz,6798437,6806528,8,1084230492
+label_192/images/ID_77cd921b_ID_e0d0a5f299.nii.gz,7209746,7214971,8,1091029036
+label_192/images/ID_2db7ee14_ID_f27e38fdfd.nii.gz,7140398,7151421,8,1098238889
+label_192/images/ID_a9fe41fd_ID_ba000cea10.nii.gz,8254756,8257805,8,1105379394
+label_192/images/ID_46cd34ad_ID_3003623499.nii.gz,8185026,8190027,8,1113634257
+label_192/images/ID_cf8f428f_ID_61ec5a3e22.nii.gz,6054259,6057452,8,1121819390
+label_192/images/ID_c3769f3a_ID_32fc557515.nii.gz,7082011,7084590,8,1127873756
+label_192/images/ID_a72de500_ID_87b2b4fc60.nii.gz,6902772,6904762,8,1134955874
+label_192/images/ID_6c70bf18_ID_3915fd7d41.nii.gz,7246618,7255410,8,1141858753
+label_192/images/ID_0237f3c9_ID_40015688b9.nii.gz,5888219,5890377,8,1149105478
+label_192/images/ID_9ba3be10_ID_1c4e9f3c40.nii.gz,7935772,7938154,8,1154993804
+label_192/images/ID_df3f0a7d_ID_fbcdf807a8.nii.gz,6753919,6755539,8,1162929683
+label_192/images/ID_d039497d_ID_da6cc2290f.nii.gz,8107198,8110911,8,1169683709
+label_192/images/ID_5f53ab26_ID_f1c7d54a53.nii.gz,7843396,7849753,8,1177791014
+label_192/images/ID_7e8279ce_ID_75522ba124.nii.gz,9425840,9430418,8,1185634517
+label_192/images/ID_5ca2154a_ID_d4984e0dcc.nii.gz,8440599,8445126,8,1195060464
+label_192/images/ID_16ed917a_ID_145f184354.nii.gz,6673632,6676003,8,1203501170
+label_192/images/ID_94271e7f_ID_50fb725eb8.nii.gz,6679178,6681458,8,1210174909
+label_192/images/ID_96967deb_ID_5d782e9379.nii.gz,7849146,7855027,8,1216854194
+label_192/images/ID_af8ac3ec_ID_81a154bf08.nii.gz,6576432,6578452,8,1224703447
+label_192/images/ID_4ec93c83_ID_b76a4106f8.nii.gz,11991889,11998995,8,1231279986
+label_192/images/ID_6a6976ae_ID_97ae10a424.nii.gz,6053421,6062776,8,1243271982
+label_192/images/ID_92ef7cc4_ID_b0c4006e93.nii.gz,6753478,6765169,8,1249325510
+label_192/images/ID_6fcd55db_ID_9ed6724906.nii.gz,6217841,6222490,8,1256079095
+label_192/images/ID_a2ddcdfe_ID_d7aedfd21f.nii.gz,8304409,8313499,8,1262297043
+label_192/images/ID_a84354a5_ID_6699da85bb.nii.gz,7053959,7056510,8,1270601559
+label_192/images/ID_0492041f_ID_b4fcf2f799.nii.gz,7428212,7444814,8,1277655625
+label_192/images/ID_7db5845a_ID_0c7cd6982b.nii.gz,8269715,8273966,8,1285083944
+label_192/images/ID_f1a342da_ID_13d6f969d2.nii.gz,7811920,7815027,8,1293353766
+label_192/images/ID_ad252872_ID_74f728bfad.nii.gz,8111685,8113313,8,1301165793
+label_192/images/ID_83a07ec6_ID_ef148a90ed.nii.gz,6188511,6202114,8,1309277585
+label_192/images/ID_ec8a7bf0_ID_c853ba89ce.nii.gz,7425382,7428031,8,1315466203
+label_192/images/ID_0c3eef60_ID_6994ad7df0.nii.gz,8191473,8205223,8,1322891692
+label_192/images/ID_2a42d0a0_ID_5fdc3fb915.nii.gz,6954779,6957701,8,1331083272
+label_192/images/ID_87385103_ID_684afaed55.nii.gz,10701760,10705883,8,1338038158
+label_192/images/ID_8d326f80_ID_87b6843dde.nii.gz,7579722,7584805,8,1348740025
+label_192/images/ID_e566ef9b_ID_439ce9720b.nii.gz,7840725,7844036,8,1356319854
+label_192/images/ID_338738e7_ID_0808281b2a.nii.gz,5315464,5326258,8,1364160686
+label_192/images/ID_10c64d22_ID_4c9aad31ca.nii.gz,7517308,7519618,8,1369476257
+label_192/images/ID_d3d99dce_ID_cd10b6aba1.nii.gz,6075943,6082927,8,1376993672
+label_192/images/ID_199b0a56_ID_09e623e993.nii.gz,7403666,7409060,8,1383069722
+label_192/images/ID_09b33fc4_ID_bcd322d4ed.nii.gz,4892971,4901570,8,1390473495
+label_192/images/ID_d8e67d7d_ID_c182bd8176.nii.gz,8652125,8663333,8,1395366573
+label_192/images/ID_029ebbea_ID_563afa0901.nii.gz,5949079,5952677,8,1404018805
+label_192/images/ID_9e0eaeeb_ID_be5b5b11eb.nii.gz,7507053,7509578,8,1409967991
+label_192/images/ID_7f065b1e_ID_4c02f6eaaf.nii.gz,6294077,6300473,8,1417475151
+label_192/images/ID_ab1ba874_ID_0c1c9bf0ae.nii.gz,7374634,7383122,8,1423769335
+label_192/images/ID_e393f193_ID_c81bf5f45d.nii.gz,6990755,6992976,8,1431144076
+label_192/images/ID_196704db_ID_4eb6296376.nii.gz,7952715,7963848,8,1438134938

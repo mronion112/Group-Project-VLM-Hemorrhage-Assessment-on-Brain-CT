@@ -1,0 +1,21 @@
+# Checkpoints & Model Weights
+*.pt
+*.pth
+checkpoints/
+
+# Data Archives & Raw Large Files
+*.zip
+*.tar.gz
+*.nii
+*.nii.gz
+*.dcm
+data_raw/
+
+# Python & Environment
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+.DS_Store
