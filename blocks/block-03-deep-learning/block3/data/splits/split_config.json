@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-11-10T13:53:00+00:00",
+  "seed": 2026,
+  "rsna_enabled": false,
+  "group_key": "patient_group_id",
+  "stratification": "rarest_positive_subtype_per_patient",
+  "ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "exclusions": [
+    "RSNA excluded from splits, manifest, and experiments per Phase 2 decision (rsna_enabled=false; surveyed_not_used).",
+    "BHSD 192 volumes mapped to 191 unique patients (patient ID_2db7ee14 has 2 volumes grouped together)."
+  ],
+  "script": "block3/src/make_splits.py",
+  "split_checksums": {
+    "train": "sha256:21cfc5c56cb3d97e29c81f4837f8d1f349b3d79fb8457f7695883e0fdb51d4c1",
+    "validation": "sha256:f9f2844446cda9c0df2c6beb7dc485e19e68e08abeeb69b56ad8ed95074f8552",
+    "test": "sha256:ad04215a880dcbe6cc43337d891ecb6bab5d97fca5bc19a8fd1f65aa99bde5c1"
+  },
+  "counts": {
+    "train": {
+      "cases": 134,
+      "patients": 133
+    },
+    "validation": {
+      "cases": 28,
+      "patients": 28
+    },
+    "test": {
+      "cases": 30,
+      "patients": 30
+    }
+  }
+}

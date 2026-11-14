@@ -1,0 +1,79 @@
+{
+  "ram_status": {
+    "total_gb": 15.55,
+    "available_gb": 8.78,
+    "used_gb": 6.77,
+    "memory_load_percent": 43,
+    "warning": ""
+  },
+  "classifier_bench": {
+    "mobilenet_v3_small__full_finetune": {
+      "ms_per_slice": 22.19,
+      "min_per_2500_slices": 0.92,
+      "min_per_3326_slices": 1.23,
+      "rss": {
+        "rss_mb": 587.34,
+        "peak_rss_mb": 587.34,
+        "pagefile_mb": 1365.69,
+        "peak_pagefile_mb": 1366.19
+      }
+    },
+    "mobilenet_v3_small__last_block_and_head": {
+      "ms_per_slice": 7.41,
+      "min_per_2500_slices": 0.31,
+      "min_per_3326_slices": 0.41,
+      "rss": {
+        "rss_mb": 478.16,
+        "peak_rss_mb": 588.26,
+        "pagefile_mb": 1249.39,
+        "peak_pagefile_mb": 1366.78
+      }
+    },
+    "resnet18__full_finetune": {
+      "ms_per_slice": 91.13,
+      "min_per_2500_slices": 3.8,
+      "min_per_3326_slices": 5.05,
+      "rss": {
+        "rss_mb": 737.72,
+        "peak_rss_mb": 791.41,
+        "pagefile_mb": 1687.29,
+        "peak_pagefile_mb": 1784.48
+      }
+    },
+    "resnet18__last_block_and_head": {
+      "ms_per_slice": 48.82,
+      "min_per_2500_slices": 2.03,
+      "min_per_3326_slices": 2.71,
+      "rss": {
+        "rss_mb": 551.48,
+        "peak_rss_mb": 791.41,
+        "pagefile_mb": 1366.04,
+        "peak_pagefile_mb": 1784.48
+      }
+    }
+  },
+  "unet_bench": {
+    "train_256_patch_or_downsampled_ms_per_slice": 88.65,
+    "train_512_full_ms_per_slice": 381.95,
+    "infer_256_sec_per_33slice_vol": 1.03,
+    "infer_512_full_sec_per_33slice_vol": 4.181,
+    "rss_after_256_train": {
+      "rss_mb": 792.7,
+      "peak_rss_mb": 982.65,
+      "pagefile_mb": 1808.57,
+      "peak_pagefile_mb": 2037.37
+    },
+    "rss_after_512_infer": {
+      "rss_mb": 1282.61,
+      "peak_rss_mb": 1314.57,
+      "pagefile_mb": 2307.93,
+      "peak_pagefile_mb": 2339.93
+    },
+    "rss_after_512_train": {
+      "rss_mb": 1173.17,
+      "peak_rss_mb": 2075.53,
+      "pagefile_mb": 2244.83,
+      "peak_pagefile_mb": 3536.15
+    }
+  }
+}

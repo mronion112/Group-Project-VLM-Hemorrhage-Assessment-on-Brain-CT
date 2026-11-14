@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "case_id": "ID_db89259c_ID_2c20aff0f9",
+  "status": "ok",
+  "created_at_utc": "2026-11-13T06:45:09Z",
+  "source_artifact_ids": [
+    "bhsd:ID_db89259c_ID_2c20aff0f9"
+  ],
+  "model_name": "resnet34_bigru_classifier+scse_unet_focaltversky",
+  "model_version": "v2.0-champion-colab",
+  "weights_hash": "sha256:7a6128f47869b945093a5c980e880f240215dccede9160bd051912c0e01ad4e2",
+  "config_hash": "sha256:8430a100b1cc1284f80b19a2ec7360dfe4a881b88865ed2862baf2da5bc66f32",
+  "input_space_id": "ID_db89259c_ID_2c20aff0f9:block2:v1",
+  "presence": {
+    "label": "positive",
+    "score": 0.848078,
+    "threshold": 0.5
+  },
+  "subtypes": {
+    "EDH": {
+      "score": 0.334753,
+      "present": false
+    },
+    "SDH": {
+      "score": 0.478984,
+      "present": false
+    },
+    "SAH": {
+      "score": 0.449943,
+      "present": false
+    },
+    "IPH": {
+      "score": 0.478587,
+      "present": false
+    },
+    "IVH": {
+      "score": 0.347771,
+      "present": false
+    }
+  },
+  "masks": {
+    "ich": {
+      "artifact": "mask_ich.nii.gz",
+      "space_id": "ID_db89259c_ID_2c20aff0f9:block2:v1"
+    },
+    "subtype": null
+  },
+  "localization": {
+    "status": "mask-derived",
+    "side": "bilateral",
+    "regions": [],
+    "coordinate_system": "RAS+"
+  },
+  "heatmaps": [],
+  "warnings": [],
+  "errors": []
+}

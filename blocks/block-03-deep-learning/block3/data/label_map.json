@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "canonical_subtypes": ["EDH", "SDH", "SAH", "IPH", "IVH"],
+  "presence_labels": ["positive", "negative", "uncertain"],
+  "datasets": {
+    "rsna_ich": {
+      "label_granularity": "slice_2d",
+      "raw_columns_or_keys": {
+        "epidural": "EDH",
+        "subdural": "SDH",
+        "subarachnoid": "SAH",
+        "intraparenchymal": "IPH",
+        "intraventricular": "IVH",
+        "any": "ICH_PRESENCE"
+      },
+      "exam_level_derivation_rule": "Mot examination (StudyInstanceUID) duoc gan nhan duong tinh (1) cho ICH hoac cho tung subtype neu va chi neu co it nhat 1 lat (slice) thuoc examination do co nhan = 1 trong stage_2_train.csv. Nhan muc lat (slice-level) duoc giu nguyen.",
+      "has_pixel_mask": false,
+      "has_bounding_box": false
+    },
+    "physionet_ct_ich": {
+      "label_granularity": "slice_2d_subtypes_and_voxel_binary_ich_mask",
+      "raw_columns_or_keys": {
+        "Epidural": "EDH",
+        "Subdural": "SDH",
+        "Subarachnoid": "SAH",
+        "Intraparenchymal": "IPH",
+        "Intraventricular": "IVH",
+        "No_Hemorrhage": "NEGATIVE_IF_1"
+      },
+      "exam_level_derivation_rule": "Examination duong tinh neu co bat ky lat nao co No_Hemorrhage == 0 (hoac bat ky subtype == 1).",
+      "has_pixel_mask": true,
+      "mask_type": "binary_ich_only",
+      "mask_voxel_values_verified": [0, 254],
+      "mask_binarization_rule": "(mask > 0).astype(uint8) -> {0, 1}",
+      "note": "75 NIfTI CT+mask pairs (#49..#130 excluding #59..#65); HU da duoc chuyen san [-1024, 3071] trong .nii int16 (khong ap lai slope/intercept)."
+    },
+    "bhsd": {
+      "label_granularity": "voxel_3d_multiclass",
+      "voxel_label_map": {
+        "0": "background",
+        "1": "EDH",
+        "2": "IPH",
+        "3": "IVH",
+        "4": "SAH",
+        "5": "SDH"
+      },
+      "raw_labels_in_dataset_json": {
+        "0": "background",
+        "1": "epidural",
+        "2": "intraparenchymal",
+        "3": "intraventricular",
+        "4": "subarachnoid",
+        "5": "subdural"
+      },
+      "note": "Da xac minh truc tiep tu dataset.json cua WuBiao/BHSD tren Hugging Face.",
+      "has_pixel_mask": true,
+      "mask_type": "multiclass_5_subtypes"
+    },
+    "cq500": {
+      "label_granularity": "exam_3d",
+      "raw_columns_or_keys": {
+        "ICH": "ICH_PRESENCE",
+        "EDH": "EDH",
+        "SDH": "SDH",
+        "SAH": "SAH",
+        "IPH": "IPH",
+        "IVH": "IVH"
+      },
+      "exam_level_derivation_rule": "Mayority vote giua 3 bac si X-quang (R1, R2, R3) theo reads.csv cua CQ500.",
+      "has_pixel_mask": false
+    }
+  }
+}

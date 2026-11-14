@@ -1,0 +1,116 @@
+{
+  "system_ram_before": {
+    "total_gb": 15.55,
+    "available_gb": 3.28,
+    "used_gb": 12.28,
+    "memory_load_percent": 78,
+    "warning": "WARNING: System RAM is 78% used (3.28 GB free of 15.55 GB). Please close background applications (browsers, unused Electron windows) before running multi-epoch training!"
+  },
+  "system_ram_after": {
+    "total_gb": 15.55,
+    "available_gb": 2.76,
+    "used_gb": 12.8,
+    "memory_load_percent": 82,
+    "warning": "WARNING: System RAM is 82% used (2.76 GB free of 15.55 GB). Please close background applications (browsers, unused Electron windows) before running multi-epoch training!"
+  },
+  "process_memory_mb": {
+    "start_rss_mb": 327.16,
+    "end_rss_mb": 753.57,
+    "peak_rss_mb": 1712.62,
+    "pagefile_mb": 1691.37,
+    "peak_pagefile_mb": 2809.38
+  },
+  "cpu_threads_used": 8,
+  "classification_2d_smoke": {
+    "mobilenet_v3_small": {
+      "num_slices_measured": 75,
+      "batch_size": 8,
+      "steps": 10,
+      "epoch_seconds": 23.057,
+      "ms_per_slice": 307.43,
+      "slices_per_sec": 3.25,
+      "extrapolated_epoch_min_3000_slices": 15.37,
+      "extrapolated_epoch_min_10017_slices": 51.33,
+      "last_loss": 0.08855,
+      "checkpoint_verified": "sha256:3b69be1cdbc39a89a56169d56b02fce01c40e8e6bcc25b8eed07a14db27b278c",
+      "rss_mb": 517.38,
+      "peak_rss_mb": 648.24
+    },
+    "resnet18": {
+      "num_slices_measured": 75,
+      "batch_size": 8,
+      "steps": 10,
+      "epoch_seconds": 63.84,
+      "ms_per_slice": 851.2,
+      "slices_per_sec": 1.17,
+      "extrapolated_epoch_min_3000_slices": 42.56,
+      "extrapolated_epoch_min_10017_slices": 142.11,
+      "last_loss": 0.1752,
+      "checkpoint_verified": "sha256:2d94bff02b39dffe3588a79f1af0850a337fd042a54366c5083cc8e9e9037bec",
+      "rss_mb": 766.02,
+      "peak_rss_mb": 870.28
+    }
+  },
+  "segmentation_2d_unet_smoke": {
+    "num_slices_measured": 33,
+    "batch_size": 4,
+    "steps": 9,
+    "train_epoch_seconds": 21.872,
+    "ms_per_slice": 662.78,
+    "extrapolated_epoch_min_4400_bhsd_slices": 48.6,
+    "inference_and_orig_grid_restore_seconds_per_volume": 33.692,
+    "orig_grid_eval_check": {
+      "dice_on_orig_grid": 0.000117,
+      "hd95_mm_on_orig_grid": 187.6886,
+      "evaluated_shape_zyx": [
+        33,
+        512,
+        512
+      ]
+    },
+    "last_loss": 1.78903,
+    "checkpoint_verified": "sha256:cbed6ed1c08264bff65552d18d4f03fa8f78a9c03db4f4399d56a630aeecd21a"
+  },
+  "downsampling_512_to_256_roundtrip_effect": {
+    "synthetic_medium_r16px_7.8mm": {
+      "orig_positive_voxels": 3188,
+      "dice_on_orig_grid": 0.957489,
+      "hd95_mm_on_orig_grid": 0.4883,
+      "evaluated_shape_zyx": [
+        16,
+        512,
+        512
+      ]
+    },
+    "synthetic_small_r4px_1.95mm": {
+      "orig_positive_voxels": 98,
+      "dice_on_orig_grid": 0.845361,
+      "hd95_mm_on_orig_grid": 0.4883,
+      "evaluated_shape_zyx": [
+        16,
+        512,
+        512
+      ]
+    },
+    "synthetic_thin_crescent_2px_0.98mm": {
+      "orig_positive_voxels": 4516,
+      "dice_on_orig_grid": 0.68498,
+      "hd95_mm_on_orig_grid": 0.4883,
+      "evaluated_shape_zyx": [
+        16,
+        512,
+        512
+      ]
+    },
+    "real_bhsd_009adb6527f7500c": {
+      "orig_positive_voxels": 504,
+      "dice_on_orig_grid": 0.87751,
+      "hd95_mm_on_orig_grid": 0.4883,
+      "evaluated_shape_zyx": [
+        33,
+        512,
+        512
+      ]
+    }
+  }
+}

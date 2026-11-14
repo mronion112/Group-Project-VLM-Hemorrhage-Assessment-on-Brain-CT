@@ -1,0 +1,79 @@
+{
+  "config_version": "block3-config-v1-phase2-bhsd-only",
+  "seed": 2026,
+  "rsna_enabled": false,
+  "datasets_active": {
+    "internal_train_val_test": "bhsd",
+    "external_evaluation_locked": "physionet_ct_ich",
+    "rsna_ich": {
+      "enabled": false,
+      "status": "surveyed_not_used",
+      "_note": "Da khao sat (nhan muc anh, tai thu 1 ca rsna_0007c6017e8b082b), khong dua vao manifest, split hay thi nghiem."
+    }
+  },
+  "storage": {
+    "storage_budget_gb": 30,
+    "min_free_gb": 50,
+    "rsna_s3_download_paused": true,
+    "bhsd_zip": {
+      "local_path": "block3/data/raw_staging/bhsd/label_192.zip",
+      "expected_size_bytes": 1446135083,
+      "expected_sha256": "582bf184af993541a4958a4d209a6a44e3bbe702a5daefaf9fb1733a4e7a6e39",
+      "keep_zip_after_processing": true,
+      "delete_only_on_user_request": true
+    },
+    "_note": "Dung BHSD 192 ca (191 benh nhan) + PhysioNet 75 ca (external eval). Khong dung va khong tai them RSNA. Giu nguyen label_192.zip (1.35 GiB) de tai xu ly."
+  },
+  "npz_format": {
+    "target_inplane_hw": [256, 256],
+    "store_hu_orig_zyx_int16_512": true,
+    "hu_dtype": "int16",
+    "mask_types": ["none", "binary_ich_only", "multiclass_5_subtypes"],
+    "evaluate_segmentation_on_orig_grid": true,
+    "forbid_double_1024_offset": true
+  },
+  "segmentation_phase3_u2": {
+    "selected_plan": "U2",
+    "train_patch_hw": [256, 256],
+    "infer_full_slice_hw": [512, 512],
+    "epochs": 15,
+    "run_only_in_phase3_after_gate2": true,
+    "mandatory_validation_metrics": [
+      "dice_on_positive_slices",
+      "hd95_mm_on_positive_slices",
+      "negative_slice_false_positive_rate",
+      "false_positive_lesions_per_volume"
+    ],
+    "_note": "U2: huan luyen patch 256x256 cat tu luoi goc 512x512 (hu_orig_zyx_int16), suy luan toan lat 512x512, 15 epoch. Chua chay o Phase 2; chi chay o Phase 3 sau khi nguoi dung duyet Gate 2."
+  },
+  "external_evaluation": {
+    "physionet_ct_ich": {
+      "role": "external_evaluation_only",
+      "allow_in_train_or_validation": false,
+      "allow_threshold_tuning": false,
+      "open_only_once_in_phase": 6,
+      "requires_gate4_frozen_config": true,
+      "mask_type": "binary_ich_only",
+      "cohort_warning": "Tap chi co 75 ca (36 duong tinh: EDH=21, IPH=16, SAH=7, IVH=5, SDH=4; 39 am tinh) nen bat buoc bao kem khoang tin cay 95% va ghi ro so lieu theo subtype khong dang tin cay."
+    }
+  },
+  "memory": {
+    "ram_cap_gb": 6.0,
+    "num_workers": 0,
+    "_note": "Da khoa theo quyet dinh Phase 2: ram_cap_gb=6.0, num_workers=0."
+  },
+  "training_phase2": {
+    "train_neg_slice_sampling": "downsample_negatives_train_only",
+    "val_test_slice_sampling": "keep_all_slices_natural_prevalence",
+    "e1_window_modes": ["brain_only", "brain_subdural", "brain_subdural_bone"],
+    "e2_backbones": ["mobilenet_v3_small", "resnet18"],
+    "ablation_seeds": [2026],
+    "selected_model_seeds": [2026, 2027, 2028]
+  },
+  "decision": {
+    "uncertain_rule": null, "presence_threshold": null, "small_lesion_definition": null,
+    "_note": "De trong den Phase 4. Nguoi dung chon va khoa truoc khi mo test."
+  },
+  "split_policy": {"unit": "patient_group_id", "official_for_block3_benchmark": true,
+                   "replace_only_on_user_request": true}
+}

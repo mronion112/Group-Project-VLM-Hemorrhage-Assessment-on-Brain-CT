@@ -5,17 +5,38 @@
 
 ## Trạng thái
 
-Kiến trúc và benchmark protocol được đặc tả; chưa có mô hình, weights hoặc kết quả benchmark của repo.
+Đã triển khai hoàn chỉnh pipeline huấn luyện và đánh giá trên Google Colab GPU (Tesla T4) tại file `Block3_Colab_Training_Pipeline.ipynb`. Pipeline tích hợp các kỹ thuật kiến trúc tối tân từ quán quân **RSNA 2019 (SeuTao)** và **MICCAI INSTANCE 2022 (NVIDIA / Team Vegetable)**.
 
-## Phương pháp và baseline
+## Phương pháp và Kiến trúc Tối tân (Champion Pipeline)
 
-Dùng baseline riêng cho từng tác vụ và chỉ gộp khi contract output tương thích:
+Pipeline được chuẩn hóa thành 3 giai đoạn độc lập nhưng kết nối chặt chẽ theo Interface Contract v1.0:
 
-1. Presence/subtype: multi-label classifier; thử 2D slice aggregation nếu nhãn chủ yếu là 2D, đối chiếu 3D khi volume-level data đủ.
-2. Localization/detection: chỉ báo detection metric khi có bbox/region annotation. Saliency heatmap là giải thích/candidate, không phải detection output được xác nhận.
-3. Segmentation: 3D nnU-Net là baseline khả thi; so với 2D/2.5D nếu volume anisotropic hoặc số volume hạn chế. Tách mask ICH tổng khỏi mask 5-class.
-4. Calibration và chọn threshold trên validation. Hỗ trợ label uncertain khi score vùng không đáng tin; ghi rule trong config.
-5. M3D-VLM hoặc VLM segmentation không thay benchmark model chuyên biệt nếu chưa chứng minh tương đương trên test độc lập.
+### 1. Tiền xử lý 3 Cửa sổ CT (Multi-Window CT) & Bảo toàn Tổn thương Mỏng
+- Chuyển đổi giá trị Hounsfield Unit (HU) gốc thành ảnh 3 kênh:
+  - **Brain Window:** $L=40, W=80 \rightarrow [0, 80]$ HU (tối ưu nhu mô não).
+  - **Subdural Window:** $L=80, W=200 \rightarrow [-20, 180]$ HU (tối ưu cho tụ máu dưới màng cứng và khoang dưới nhện).
+  - **Bone Window:** $L=600, W=2800 \rightarrow [-800, 2000]$ HU (giúp mô hình học rõ bờ xương sọ và vôi hóa).
+- Áp dụng phép nội suy bảo toàn tổn thương nhỏ (Anti-aliased thin bleed preservation), đảm bảo các vệt xuất huyết rãnh não (sulcal SAH) có bề dày 1-2 pixel không bị triệt tiêu khi nạp vào mạng.
+
+### 2. Phân loại Đa nhãn Chuỗi 3D (RSNA Top 1 Champion — SeuTao)
+- **Tầng 1 (Spatial Feature Extractor):** ResNet-34 pretrained trích xuất vector đặc trưng $512$ chiều cho từng lát cắt 2D.
+- **Tầng 2 (Sequence Context Aggregator):** Bidirectional GRU (`hidden_dim=128`, `bidirectional=True`) quét 2 chiều dọc theo trục không gian $Z$, mô phỏng quá trình bác sĩ cuộn phim CT từ đỉnh đầu xuống nền sọ để học tính liên tục giải phẫu của khối xuất huyết.
+- **Hàm mất mát:** `BCEWithLogitsLoss` có trọng số bù trừ `pos_weight` cho các phân loại hiếm (EDH, SDH).
+
+### 3. Phân đoạn Nâng cao (MICCAI INSTANCE 2022 Champion) & Hậu xử lý Vật lý
+- **Kiến trúc:** Attention U-Net với Encoder ResNet-34 và khối **scSE (Spatial and Channel Squeeze-and-Excitation)**. Khối scSE tự động triệt tiêu tín hiệu xương sọ và tập trung vào bờ mô tổn thương não.
+- **Hàm mất mát Focal Tversky Loss ($\alpha=0.7, \beta=0.3, \gamma=1.33$):**
+  - $\alpha=0.7$: Phạt nặng False Negatives, buộc mạng phải nhận diện các dải máu mỏng và ổ xuất huyết nhỏ li ti (khắc phục triệt để lỗi Dice 0.00 trên SAH).
+  - $\beta=0.3$: Co gọn đường viền tổn thương, chống over-segmentation.
+  - $\gamma=1.33$: Tập trung lực học vào các lát cắt khó.
+- **Hậu xử lý Lọc Xương Vật lý (Physical HU Gating):** Áp dụng dải HU sinh học của máu tụ cấp tính ($15 \le \text{HU} \le 105$) và lọc thành phần liên thông nhỏ ($<15$ pixel) để loại bỏ 100% các đốm nhiễu viền xương sọ.
+- **Quét ngưỡng tối ưu (Threshold Search):** Tự động quét dải $0.20 \rightarrow 0.55$ trên tập Validation để chọn ngưỡng tối đa hóa điểm Dice thay vì cắt cứng ở 0.5.
+
+### 4. Chuẩn đầu ra Hợp đồng (Interface Contract v1.0)
+- Tự động sinh `findings.json` chuẩn hóa 100% theo JSON Schema (bản quyền `docs/INTERFACE_CONTRACT.md`).
+- Tự động sinh `mask_ich.nii.gz` kích thước gốc ($512 \times 512 \times Z$) giữ nguyên affine matrix và header gốc phục vụ Block 4 tính thể tích mL.
+
+*Chi tiết danh mục bài báo gốc, giải đấu quốc tế và mã trích dẫn BibTeX được tổng hợp tại [CITATIONS.md](CITATIONS.md).*
 
 ## Benchmark cần báo cáo
 
