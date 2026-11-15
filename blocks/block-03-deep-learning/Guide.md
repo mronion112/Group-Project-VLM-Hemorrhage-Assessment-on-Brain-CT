@@ -1,6 +1,6 @@
 # Block 3 — Deep Learning: presence, subtype, localization, mask
 
-**Phụ trách:** Nguyễn Đình Hữu Minh và Vũ Minh Hoàng.  
+**Phụ trách:** Nguyễn Đình Hữu Minh và Vũ Minh Hoàng.
 **CI/CD:** Nguyễn Quang Vũ Hoàng phụ trách, cố vấn và giám sát xuyên suốt.
 
 ## Mục tiêu

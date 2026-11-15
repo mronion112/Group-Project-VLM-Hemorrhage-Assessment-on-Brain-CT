@@ -10,6 +10,10 @@ block3/data/*.zip
 *.zip
 archives/
 data_raw/
+.data_raw/
+block3/manifests/raw_staging/
+block3/manifests/raw_external/
+block3/manifests/processed/
 block3/checkpoints/*.pt
 block3/checkpoints/*.pth
 *.nii

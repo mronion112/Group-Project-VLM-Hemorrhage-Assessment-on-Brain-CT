@@ -1,5 +1,7 @@
 # 📚 Danh Mục Tài Liệu Tham Khảo & Trích Dẫn Khoa Học (Citations & References)
+
 ### Dự án: A VLM-Based System for Intracranial Hemorrhage Assessment on Brain CT
+
 ### Phân hệ: Block 3 — Deep Learning (Phân loại Đa nhãn & Phân đoạn Tổn thương 3D)
 
 Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa học gốc (peer-reviewed papers), mã nguồn từ các đội vô địch quốc tế (RSNA, MICCAI), và định dạng trích dẫn chuẩn (BibTeX & APA) phục vụ viết báo cáo khoa học, slide thuyết trình, và phản biện trước hội đồng.
@@ -7,6 +9,7 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 ---
 
 ## 📑 Mục lục
+
 1. [Bộ dữ liệu chuẩn Y khoa (Datasets)](#1-bộ-dữ-liệu-chuẩn-y-khoa-datasets)
 2. [Kiến trúc Phân loại Chuỗi 3D — Quán quân RSNA 2019](#2-kiến-trúc-phân-loại-chuỗi-3d--quán-quân-rsna-2019)
 3. [Kiến trúc Phân đoạn Nâng cao & Thách thức MICCAI INSTANCE](#3-kiến-trúc-phân-đoạn-nâng-cao--thách-thức-miccai-instance)
@@ -21,6 +24,7 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 ## 1. Bộ dữ liệu chuẩn Y khoa (Datasets)
 
 ### 1.1. Tập dữ liệu BHSD (Brain Hemorrhage Segmentation Dataset)
+
 - **Tên bài báo:** *BHSD: A 3D Multi-class Brain Hemorrhage Segmentation Dataset*
 - **Tác giả:** Biao Wu, X. Shen, C. Ding, et al.
 - **Xuất bản tại:** MICCAI MLMI 2023 (*Machine Learning in Medical Imaging*), Lecture Notes in Computer Science (LNCS), vol 14348, pp. 147–156, Springer.
@@ -29,6 +33,7 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 - **Ứng dụng trong Block 3:** Bộ dữ liệu huấn luyện và kiểm thử chính thống gồm 192 ca chụp CT 3D NIfTI có mặt nạ phân đoạn voxel đa lớp (0: Nền, 1: EDH, 2: IPH, 3: IVH, 4: SAH, 5: SDH). Dữ liệu được chia theo bệnh nhân (Patient-level splits) 134 ca Train, 28 ca Val, 30 ca Test nhằm chống rò rỉ dữ liệu (zero leakage).
 
 ### 1.2. Tập dữ liệu RSNA Brain CT Hemorrhage Challenge
+
 - **Tên bài báo:** *Construction of a Machine Learning Dataset through Collaboration: The RSNA 2019 Brain CT Hemorrhage Challenge*
 - **Tác giả:** Adam E. Flanders, Luciano M. Prevedello, Garry Choy, et al.
 - **Tạp chí:** *Radiology: Artificial Intelligence*, 2020; 2(3):e190211.
@@ -41,16 +46,18 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 ## 2. Kiến trúc Phân loại Chuỗi 3D — Quán quân RSNA 2019
 
 ### 2.1. Giải pháp Quán quân RSNA 2019 (Top 1 / 1,345 đội thi quốc tế)
+
 - **Tác giả:** Tao Sheng (SeuTao)
 - **Kho lưu trữ mã nguồn:** [GitHub SeuTao/RSNA2019_Intracranial-Hemorrhage-Detection](https://github.com/SeuTao/RSNA2019_Intracranial-Hemorrhage-Detection)
 - **Báo cáo kỹ thuật:** *1st Place Solution Overview — RSNA Intracranial Hemorrhage Detection* (Kaggle Discussion, 2019).
-- **Nguyên lý kiến trúc:** 
+- **Nguyên lý kiến trúc:**
   1. Sử dụng CNN 2D (`ResNet/ResNeXt`) để trích xuất vector biểu diễn cô đọng ($512$ hoặc $2048$ chiều) từ từng lát cắt CT.
   2. Nạp toàn bộ chuỗi vector lát cắt của một ca chụp qua mạng hồi quy 2 chiều (`Bidirectional GRU / LSTM`) theo trục $Z$ (chiều cao đầu bệnh nhân).
   3. Mô hình hóa mối tương quan giải phẫu liên tục giữa các lát cắt lân cận, mô phỏng đúng thao tác cuộn phim CT của bác sĩ lâm sàng.
 - **Ứng dụng trong Block 3:** Tích hợp trực tiếp lớp mạng `RSNAWinningClassifier` gồm `ResNet-34 Feature Extractor` kết hợp `Bidirectional GRU(hidden_dim=128)` để phân loại đa nhãn 6 loại xuất huyết.
 
 ### 2.2. Bài báo nền tảng về Phân loại Chuỗi CT Lát cắt (RADNet)
+
 - **Tên bài báo:** *RADNet: Radiologist Level Accuracy using Deep Learning for Hemorrhage Detection in CT Scans*
 - **Tác giả:** M. Grewal, M. M. Srivastava, P. Kumar, S. Varadarajan
 - **Hội nghị:** IEEE 15th International Symposium on Biomedical Imaging (ISBI 2018), Washington, DC, USA.
@@ -61,6 +68,7 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 ## 3. Kiến trúc Phân đoạn Nâng cao & Thách thức MICCAI INSTANCE
 
 ### 3.1. Báo cáo Tổng kết Thách thức MICCAI INSTANCE 2022
+
 - **Tên bài báo:** *The state-of-the-art 3D anisotropic intracranial hemorrhage segmentation on non-contrast head CT: The INSTANCE challenge*
 - **Tác giả:** Xiangyu Li, et al.
 - **Tạp chí:** *Medical Image Analysis* (MedIA), Elsevier, Vol. 90, 2023.
@@ -76,6 +84,7 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 ## 4. Hàm mất mát Đặc trị Tổn thương Nhỏ (Focal Tversky Loss)
 
 ### 4.1. Bài báo gốc về Focal Tversky Loss
+
 - **Tên bài báo:** *A Novel Focal Tversky Loss Function with Improved Attention U-Net for Lesion Segmentation*
 - **Tác giả:** Nabila Abraham, Naimul Mefraz Khan
 - **Hội nghị:** IEEE 16th International Symposium on Biomedical Imaging (ISBI 2019), Venice, Italy, pp. 683–687.
@@ -94,6 +103,7 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 ## 5. Cơ chế Chú ý Không gian & Kênh (scSE Attention Gates)
 
 ### 5.1. Bài báo gốc về scSE Blocks
+
 - **Tên bài báo:** *Recalibrating Fully Convolutional Networks with Spatial and Channel "Squeeze & Excitation" Blocks*
 - **Tác giả:** Abhijit Guha Roy, Nassir Navab, Christian Wachinger
 - **Tạp chí:** *IEEE Transactions on Medical Imaging* (TMI), 2019; 38(2):540–549.
@@ -109,6 +119,7 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 ## 6. Công trình Nghiên cứu Phân đoạn Xuất huyết Não Mới nhất (Nature Sci Rep 2025)
 
 ### 6.1. Bài báo Nature Scientific Reports (Tháng 5/2025)
+
 - **Tên bài báo:** *A novel deep convolutional neural network model for intracranial hemorrhage segmentation using IHSNet*
 - **Tác giả:** S. Nafees Ahmed, P. Prakasam
 - **Tạp chí:** *Scientific Reports* (Nature Portfolio), 2025; 15:1317.
@@ -123,6 +134,7 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 ## 7. Vật lý Chẩn đoán Hình ảnh & Cửa sổ CT (Windowing Standards)
 
 ### 7.1. Tiêu chuẩn Cửa sổ CT Sọ Não trong Cấp Cứu Thần Kinh
+
 - **Tài liệu tham khảo Y khoa:** American College of Radiology (ACR) Practice Parameter for the Performance of Head Computed Tomography (CT).
 - **Quy chuẩn 3 Cửa sổ Ánh xạ vào RGB:**
   1. **Cửa sổ Não (Brain Window - Kênh R):** $L = 40\text{ HU}, W = 80\text{ HU} \rightarrow [0, 80]\text{ HU}$. Phân biệt chất xám, chất trắng và dịch não tủy (CSF).

@@ -75,7 +75,9 @@ def check_split_files(split_paths: dict[str, Path]) -> dict:
 
 
 def main(argv: list[str]) -> int:
-    splits_dir = Path(argv[1]) if len(argv) > 1 else Path(__file__).resolve().parents[1] / "data" / "splits"
+    base_p = Path(__file__).resolve().parents[1]
+    default_dir = base_p / "manifests" / "splits" if (base_p / "manifests" / "splits").exists() else base_p / "data" / "splits"
+    splits_dir = Path(argv[1]) if len(argv) > 1 else default_dir
     paths = {s: splits_dir / f"{s}.csv" for s in ("train", "validation", "test") if (splits_dir / f"{s}.csv").exists()}
     if not paths:
         print(f"No split CSVs found in {splits_dir}")

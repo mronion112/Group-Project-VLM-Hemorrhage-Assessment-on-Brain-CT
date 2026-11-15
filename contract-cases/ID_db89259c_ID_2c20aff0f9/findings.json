@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "case_id": "ID_db89259c_ID_2c20aff0f9",
-  "status": "ok",
+  "status": "partial",
   "created_at_utc": "2026-11-13T06:45:09Z",
   "source_artifact_ids": [
     "bhsd:ID_db89259c_ID_2c20aff0f9"
@@ -49,9 +49,11 @@
     "status": "mask-derived",
     "side": "bilateral",
     "regions": [],
-    "coordinate_system": "RAS+"
+    "coordinate_system": "LAS+"
   },
   "heatmaps": [],
-  "warnings": [],
+  "warnings": [
+    "Global presence is positive (0.848078), but uncalibrated subtype scores are < 0.5. Primary candidate is SDH (0.478984)."
+  ],
   "errors": []
 }

@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 BLOCK3_DIR = Path(__file__).resolve().parents[1]
-SPLITS_DIR = BLOCK3_DIR / "block3" / "data" / "splits"
+SPLITS_DIR = BLOCK3_DIR / "block3" / "manifests" / "splits" if (BLOCK3_DIR / "block3" / "manifests" / "splits").exists() else BLOCK3_DIR / "block3" / "data" / "splits"
 
 splits_dict = {}
 for sp in ("train", "validation", "test"):
@@ -221,8 +221,8 @@ case_cache = {"train": [], "validation": []}
 for sp in ["train", "validation"]:
     print(f"-> Đang xử lý tập {sp} ({len(SPLITS[sp])} ca)...")
     for cid in tqdm(SPLITS[sp]):
-        # Bỏ qua ca 59ccfacbf94609f8 có lỗi tràn số nguyên 12-bit HU âm từ nguồn gốc BHSD
-        if sp == "train" and "59ccfacbf94609f8" in cid:
+        # Bỏ qua ca 59ccfacbf94609f8 (ID_a429fd9a_ID_2eabc43f3d) có lỗi tràn số nguyên 12-bit HU âm từ nguồn gốc BHSD
+        if sp == "train" and ("59ccfacbf94609f8" in cid or "ID_a429fd9a_ID_2eabc43f3d" in cid):
             continue
         try:
             sx, sy, mb, ms, shu = process_case_data(cid)
@@ -488,6 +488,7 @@ unet_model.eval()
 
 candidate_thresholds = [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55]
 threshold_dices = {th: [] for th in candidate_thresholds}
+threshold_fprs = {th: [] for th in candidate_thresholds}
 
 with torch.no_grad():
     for x, _, mask_bin, hu in val_seg_loader:
@@ -495,23 +496,29 @@ with torch.no_grad():
         targets = mask_bin.numpy()
         hu_np = hu.numpy()
         for p, t, h in zip(preds, targets, hu_np):
-            if np.sum(t) > 0:
-                t_bin = (t[0] > 0.5).astype(np.float32)
-                for th in candidate_thresholds:
-                    cleaned_p = post_process_mask(p[0], h, threshold=th, min_size=15)
+            is_pos = (np.sum(t) > 0)
+            t_bin = (t[0] > 0.5).astype(np.float32)
+            for th in candidate_thresholds:
+                cleaned_p = post_process_mask(p[0], h, threshold=th, min_size=15)
+                if is_pos:
                     threshold_dices[th].append(compute_dice_score(cleaned_p, t_bin))
+                else:
+                    fp_voxels = np.sum(cleaned_p > 0)
+                    threshold_fprs[th].append(1.0 if fp_voxels > 0 else 0.0)
 
-print("📊 KẾT QUẢ QUÉT NGƯỠNG TỐI ƯU KẾT HỢP LỌC XƯƠNG TRÊN VALIDATION:")
+print("📊 KẾT QUẢ QUÉT NGƯỠNG TỐI ƯU CẢ LÁT DƯƠNG VÀ LÁT ÂM (TRÁNH DỰ ĐOÁN GIẢ):")
 best_th = 0.35
-best_th_dice = 0.0
+best_th_score = -1.0
 for th in candidate_thresholds:
-    avg_d = np.mean(threshold_dices[th])
-    print(f"   - Ngưỡng {th:.2f} -> Mean Dice: {avg_d:.4f}")
-    if avg_d > best_th_dice:
-        best_th_dice = avg_d
+    pos_d = np.mean(threshold_dices[th]) if threshold_dices[th] else 0.0
+    neg_clean = 1.0 - np.mean(threshold_fprs[th]) if threshold_fprs[th] else 1.0
+    composite_score = 0.7 * pos_d + 0.3 * neg_clean
+    print(f"   - Ngưỡng {th:.2f} -> Pos Dice: {pos_d:.4f} | Neg Clean: {neg_clean*100:.1f}% | Composite: {composite_score:.4f}")
+    if composite_score > best_th_score:
+        best_th_score = composite_score
         best_th = th
 
-print(f"\\n🎯 NGƯỠNG CẮT TỐI ƯU NHẤT ĐƯỢC CHỌN: {best_th:.2f} (Dice: {best_th_dice:.4f})")
+print(f"\\n🎯 NGƯỠNG CẮT TỐI ƯU ĐƯỢC CHỌN: {best_th:.2f} (Composite Score: {best_th_score:.4f})")
 """)
 
 # --- CELL 10: Visualizing Upgraded Results ---
@@ -584,10 +591,15 @@ factors_restore = (1.0, orig_shape[1]/256.0, orig_shape[0]/256.0)
 pred_mask_orig_zyx = zoom(pred_mask_256, factors_restore, order=0)
 pred_mask_xyz = np.transpose(pred_mask_orig_zyx, (2, 1, 0)).astype(np.uint8)
 
-# Xác định vị trí bán cầu (Side localization)
+# Xác định vị trí bán cầu (Side localization) có kiểm tra chiều trục Affine (RAS+ vs LAS+)
+is_inverted_x = bool(orig_img.affine[0, 0] < 0)
 mid_x = pred_mask_xyz.shape[0] // 2
-left_vol = np.sum(pred_mask_xyz[:mid_x, :, :])
-right_vol = np.sum(pred_mask_xyz[mid_x:, :, :])
+side_0_vol = np.sum(pred_mask_xyz[:mid_x, :, :])
+side_1_vol = np.sum(pred_mask_xyz[mid_x:, :, :])
+
+left_vol = side_1_vol if is_inverted_x else side_0_vol
+right_vol = side_0_vol if is_inverted_x else side_1_vol
+
 if left_vol + right_vol == 0:
     side_str = None
 elif left_vol > 3 * right_vol:
@@ -602,10 +614,21 @@ out_mask_path = Path("mask_ich.nii.gz")
 nib.save(mask_nii, str(out_mask_path))
 print("✅ Đã tạo mask 3D:", out_mask_path, "Shape:", pred_mask_xyz.shape)
 
+warnings_list = []
+max_subtype_idx = int(np.argmax(exam_probs[1:]) + 1)
+max_subtype_score = float(exam_probs[max_subtype_idx])
+max_subtype_name = SUBTYPE_NAMES[max_subtype_idx]
+any_subtype_present = any(exam_probs[1:] >= 0.5)
+
+if ich_score >= 0.5 and not any_subtype_present:
+    warnings_list.append(
+        f"Global presence is positive ({ich_score:.4f}), but all uncalibrated subtype scores are < 0.5. Primary candidate is {max_subtype_name} ({max_subtype_score:.4f})."
+    )
+
 findings = {
     "schema_version": "1.0",
     "case_id": sample_case,
-    "status": "ok",
+    "status": "partial" if warnings_list else "ok",
     "created_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
     "source_artifact_ids": [f"bhsd:{sample_case}"],
     "model_name": "resnet34_bigru_classifier+scse_unet_focaltversky",
@@ -633,10 +656,10 @@ findings = {
         "status": "mask-derived",
         "side": side_str,
         "regions": [],
-        "coordinate_system": "RAS+"
+        "coordinate_system": "LAS+" if is_inverted_x else "RAS+"
     },
     "heatmaps": [],
-    "warnings": [],
+    "warnings": warnings_list,
     "errors": []
 }
 

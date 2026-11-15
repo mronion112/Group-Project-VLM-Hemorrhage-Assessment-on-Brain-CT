@@ -38,6 +38,7 @@ blocks/block-03-deep-learning/
 ## 🚀 Hướng Dẫn Sử Dụng Nhanh
 
 ### 1. Huấn luyện Mô hình Đột phá trên Google Colab (GPU Tesla T4)
+
 1. Tải file [notebooks/Block3_Colab_Training_Pipeline.ipynb](notebooks/Block3_Colab_Training_Pipeline.ipynb) lên [Google Colab](https://colab.research.google.com/).
 2. Chọn **Runtime** $\rightarrow$ **Change runtime type** $\rightarrow$ Chọn **T4 GPU**.
 3. Chạy toàn bộ (**Run all**). Pipeline sẽ:
@@ -48,20 +49,26 @@ blocks/block-03-deep-learning/
    - Xuất `findings.json`, `mask_ich.nii.gz` ($512 \times 512$) và đóng gói tải về `Block3_Champion_Handover.zip`.
 
 ### 2. Kiểm thử Cục bộ (Local Verification — Không cần tải dữ liệu nặng)
+
 Chạy tại thư mục `blocks/block-03-deep-learning/`:
 
 ```bash
+
 # Kiểm tra phân chia tập bệnh nhân (134 Train / 28 Val / 30 Test, 0 overlap)
+
 python block3/src/check_splits.py
 
 # Chạy kiểm thử pipeline end-to-end trên dữ liệu tổng hợp
+
 python block3/src/smoke_test.py --synthetic
 
 # Kiểm tra tính hợp lệ của file findings.json theo Interface Contract v1.0
+
 python block3/src/validate_output.py <đường_dẫn_tới_findings.json>
 ```
 
 ---
 
 ## 📖 Tham Khảo Học Thuật
+
 Mọi bài báo gốc (MICCAI, IEEE TMI, ISBI, Nature Scientific Reports, Radiology: AI) cùng mã nguồn vô địch RSNA 2019 và mã BibTeX chuẩn được lưu trữ đầy đủ tại [CITATIONS.md](CITATIONS.md).
