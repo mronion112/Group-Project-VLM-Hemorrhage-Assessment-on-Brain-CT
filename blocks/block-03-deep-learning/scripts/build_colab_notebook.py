@@ -379,12 +379,22 @@ class SegmentationDiskDataset(Dataset):
             torch.from_numpy(hu)
         )
 
+# Tự động nạp từ cache_manifest.json nếu biến chưa được nạp hoặc bị rỗng
+if "train_slice_files" not in globals() or len(train_slice_files) == 0:
+    manifest_path = DATA_ROOT / "cache_512" / "cache_manifest.json"
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text())
+        train_slice_files = manifest["train_slice_files"]
+        val_slice_files = manifest["val_slice_files"]
+
+print(f"📦 Khởi tạo DataLoader: {len(train_slice_files)} lát cắt Train | {len(val_slice_files)} lát cắt Val")
 train_seg_dataset = SegmentationDiskDataset(train_slice_files, augment=True)
 val_seg_dataset = SegmentationDiskDataset(val_slice_files, augment=False)
 
 # Batch size 8 kết hợp AMP fp16 chạy trơn tru trên Tesla T4 16GB
 train_seg_loader = DataLoader(train_seg_dataset, batch_size=8, shuffle=True, num_workers=2, pin_memory=True)
 val_seg_loader = DataLoader(val_seg_dataset, batch_size=8, shuffle=False, num_workers=2, pin_memory=True)
+print("✅ Khởi tạo DataLoader thành công! Sẵn sàng huấn luyện U-Net.")
 """)
 
 # --- CELL 7: Phase 2 Training (Classifier with Sequence Bi-GRU) ---
@@ -393,7 +403,14 @@ Kiến trúc 2 tầng chuẩn giải đấu quốc tế:
 - **Tầng 1 (ResNet-34):** Trích xuất vector đặc trưng $512$ chiều từ từng lát cắt 2D.
 - **Tầng 2 (Bidirectional GRU):** Quét 2 chiều dọc theo trục Z nối liền 30-45 lát cắt để học tính liên tục giải phẫu không gian của khối máu tụ.
 - **Hỗ trợ AMP (fp16):** Tăng tốc tính toán và tiết kiệm VRAM tối đa.""")
-add_code("""class RSNAWinningClassifier(nn.Module):
+add_code("""# Tự động nạp danh sách ca bệnh nếu biến chưa được nạp
+if "valid_cases" not in globals() or len(valid_cases.get("train", [])) == 0:
+    manifest_path = DATA_ROOT / "cache_512" / "cache_manifest.json"
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text())
+        valid_cases = manifest["valid_cases"]
+
+class RSNAWinningClassifier(nn.Module):
     def __init__(self, num_classes=6, hidden_dim=128):
         super().__init__()
         resnet = models.resnet34(weights=models.ResNet34_Weights.DEFAULT)
