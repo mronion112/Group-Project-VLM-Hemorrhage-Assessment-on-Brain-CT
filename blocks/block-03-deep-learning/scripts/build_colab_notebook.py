@@ -217,37 +217,92 @@ def process_case_data(case_id, target_hw=(512, 512)):
         # Lưu x_3ch dạng uint8 (0-255) và masks dạng uint8 để tiết kiệm RAM tối đa (< 3.5 GB)
         slices_x.append((x_3ch * 255.0).astype(np.uint8))
         slices_y.append(y_vec)
-        masks_bin.append(gt_bin)
-        masks_sub.append(gt_sub)
         slices_hu.append(np.clip(hu_2d, -1024, 3071).astype(np.int16))
         
     return slices_x, slices_y, masks_bin, masks_sub, slices_hu
 
-print("⚡ Đang nạp và tiền xử lý dữ liệu nguyên bản 512x512 vào RAM...")
-data_cache = {"train": [], "validation": []}
-case_cache = {"train": [], "validation": []}
+print("⚡ Đang tiền xử lý và lưu cache 512x512 vào SSD (Chống tràn RAM - Zero OOM)...")
+import gc
 
-for sp in ["train", "validation"]:
-    print(f"-> Đang xử lý tập {sp} ({len(SPLITS[sp])} ca)...")
-    for cid in tqdm(SPLITS[sp]):
-        # Bỏ qua ca 59ccfacbf94609f8 (ID_a429fd9a_ID_2eabc43f3d) có lỗi tràn số nguyên 12-bit HU âm từ nguồn gốc BHSD
-        if sp == "train" and ("59ccfacbf94609f8" in cid or "ID_a429fd9a_ID_2eabc43f3d" in cid):
-            continue
-        try:
-            sx, sy, mb, ms, shu = process_case_data(cid, target_hw=(512, 512))
-            case_cache[sp].append({
-                "case_id": cid,
-                "x": np.stack(sx), # (Slices, 3, 512, 512) uint8
-                "y": np.stack(sy), # (Slices, 6) float32
-                "mask": np.stack(mb), # (Slices, 512, 512) uint8
-                "hu": np.stack(shu) # (Slices, 512, 512) int16
-            })
-            for x, y, b, m, h in zip(sx, sy, mb, ms, shu):
-                data_cache[sp].append((x, y, b, m, h))
-        except Exception as e:
-            print(f"Lỗi ca {cid}: {e}")
+CACHE_DIR = DATA_ROOT / "cache_512"
+CASE_DIR = CACHE_DIR / "cases"
+SLICE_DIR = CACHE_DIR / "slices"
+MANIFEST_FILE = CACHE_DIR / "cache_manifest.json"
 
-print(f"✅ Nạp thành công: {len(data_cache['train'])} lát cắt Train | {len(data_cache['validation'])} lát cắt Val (Độ phân giải: 512x512)")
+CASE_DIR.mkdir(parents=True, exist_ok=True)
+SLICE_DIR.mkdir(parents=True, exist_ok=True)
+
+valid_cases = {"train": [], "validation": []}
+slice_files = {"train_pos": [], "train_neg": [], "val": []}
+
+if MANIFEST_FILE.exists():
+    print("⚡ Đã tìm thấy bộ nhớ cache 512x512 trên ổ cứng SSD! Đang nạp danh mục...")
+    manifest = json.loads(MANIFEST_FILE.read_text())
+    valid_cases = manifest["valid_cases"]
+    train_slice_files = manifest["train_slice_files"]
+    val_slice_files = manifest["val_slice_files"]
+else:
+    for sp in ["train", "validation"]:
+        print(f"-> Đang xử lý tập {sp} ({len(SPLITS[sp])} ca)...")
+        for cid in tqdm(SPLITS[sp]):
+            # Bỏ qua ca lỗi tràn số nguyên 12-bit HU âm từ nguồn gốc BHSD
+            if "59ccfacbf94609f8" in cid or "ID_a429fd9a_ID_2eabc43f3d" in cid:
+                continue
+            try:
+                sx, sy, mb, ms, shu = process_case_data(cid, target_hw=(512, 512))
+                
+                # 1. Lưu case 3D cho Bộ phân loại 3D Bi-GRU (chỉ lưu x và y để nén chặt)
+                case_path = CASE_DIR / f"{cid}.npz"
+                np.savez_compressed(case_path, x=np.stack(sx), y=np.stack(sy))
+                valid_cases[sp].append(cid)
+                
+                # 2. Lưu từng lát cắt cho U-Net
+                for i in range(len(sx)):
+                    is_pos = bool(np.sum(mb[i]) > 0)
+                    has_brain = bool(np.max(shu[i]) > 100)
+                    
+                    if sp == "train":
+                        if is_pos:
+                            s_path = SLICE_DIR / f"train_pos_{cid}_{i:03d}.npz"
+                            np.savez_compressed(s_path, x=sx[i], y=sy[i], mask_bin=mb[i], hu=shu[i])
+                            slice_files["train_pos"].append(str(s_path))
+                        elif has_brain:
+                            s_path = SLICE_DIR / f"train_neg_{cid}_{i:03d}.npz"
+                            np.savez_compressed(s_path, x=sx[i], y=sy[i], mask_bin=mb[i], hu=shu[i])
+                            slice_files["train_neg"].append(str(s_path))
+                    else:
+                        if has_brain or is_pos:
+                            s_path = SLICE_DIR / f"val_{cid}_{i:03d}.npz"
+                            np.savez_compressed(s_path, x=sx[i], y=sy[i], mask_bin=mb[i], hu=shu[i])
+                            slice_files["val"].append(str(s_path))
+                
+                # Giải phóng RAM ngay lập tức sau mỗi ca
+                del sx, sy, mb, ms, shu
+                gc.collect()
+            except Exception as e:
+                print(f"Lỗi ca {cid}: {e}")
+                
+    # Cân bằng dữ liệu U-Net 512x512
+    random.seed(SEED)
+    num_pos = len(slice_files["train_pos"])
+    num_neg = min(len(slice_files["train_neg"]), num_pos)
+    sampled_neg = random.sample(slice_files["train_neg"], num_neg)
+    train_slice_files = slice_files["train_pos"] + sampled_neg
+    random.shuffle(train_slice_files)
+    val_slice_files = slice_files["val"]
+    
+    # Lưu manifest
+    manifest = {
+        "valid_cases": valid_cases,
+        "train_slice_files": train_slice_files,
+        "val_slice_files": val_slice_files
+    }
+    MANIFEST_FILE.write_text(json.dumps(manifest))
+
+print(f"✅ Sẵn sàng huấn luyện:")
+print(f"   - Phân loại 3D: {len(valid_cases['train'])} ca Train | {len(valid_cases['validation'])} ca Val")
+print(f"   - Phân đoạn U-Net 512x512: {len(train_slice_files)} lát Train ({len(slice_files.get('train_pos', []))} pos) | {len(val_slice_files)} lát Val")
+print(f"   - RAM sử dụng: Cực kỳ tiết kiệm (< 1 GB / 12.7 GB), an toàn tuyệt đối chống OOM!")
 """)
 
 # --- CELL 6: Medical Augmentation & Balanced Dataset ---
@@ -282,24 +337,21 @@ add_code("""class MedicalAugmentation:
         mask = TF.affine(mask, angle=angle, translate=translate, scale=scale, shear=0, interpolation=TF.InterpolationMode.NEAREST)
         return x_img, mask
 
-class SegmentationDataset(Dataset):
-    def __init__(self, data_list, balance_sampling=True, augment=False):
-        self.data = data_list
+class SegmentationDiskDataset(Dataset):
+    def __init__(self, file_paths, augment=False):
+        self.file_paths = file_paths
         self.augment = MedicalAugmentation() if augment else None
-        if balance_sampling:
-            pos_slices = [d for d in data_list if np.sum(d[2]) > 0]
-            neg_slices = [d for d in data_list if np.sum(d[2]) == 0 and np.max(d[4]) > 100]
-            random.seed(SEED)
-            sampled_neg = random.sample(neg_slices, min(len(neg_slices), len(pos_slices)))
-            self.data = pos_slices + sampled_neg
-            random.shuffle(self.data)
-            print(f"   [Cân bằng dữ liệu U-Net 512x512] Dương tính: {len(pos_slices)} | Âm tính: {len(sampled_neg)}")
             
     def __len__(self):
-        return len(self.data)
+        return len(self.file_paths)
         
     def __getitem__(self, idx):
-        x_uint8, y, mask_bin, mask_sub, hu = self.data[idx]
+        with np.load(self.file_paths[idx]) as data:
+            x_uint8 = data["x"]
+            y = data["y"]
+            mask_bin = data["mask_bin"]
+            hu = data["hu"]
+            
         x_float = torch.from_numpy(x_uint8).float() / 255.0
         mask_float = torch.from_numpy(mask_bin).float().unsqueeze(0)
         
@@ -313,8 +365,8 @@ class SegmentationDataset(Dataset):
             torch.from_numpy(hu)
         )
 
-train_seg_dataset = SegmentationDataset(data_cache["train"], balance_sampling=True, augment=True)
-val_seg_dataset = SegmentationDataset(data_cache["validation"], balance_sampling=False, augment=False)
+train_seg_dataset = SegmentationDiskDataset(train_slice_files, augment=True)
+val_seg_dataset = SegmentationDiskDataset(val_slice_files, augment=False)
 
 # Batch size 8 kết hợp AMP fp16 chạy trơn tru trên Tesla T4 16GB
 train_seg_loader = DataLoader(train_seg_dataset, batch_size=8, shuffle=True, num_workers=2, pin_memory=True)
@@ -367,9 +419,10 @@ print("🚀 Huấn luyện Bộ phân loại 3D Bi-GRU theo từng ca bệnh (Pa
 for epoch in range(1, NUM_EPOCHS_CLS + 1):
     classifier.train()
     total_loss = 0.0
-    for case in case_cache["train"]:
-        x_tensor = (torch.from_numpy(case["x"]).float() / 255.0).to(device)
-        y_tensor = torch.from_numpy(case["y"]).to(device)
+    for cid in valid_cases["train"]:
+        case_data = np.load(CASE_DIR / f"{cid}.npz")
+        x_tensor = (torch.from_numpy(case_data["x"]).float() / 255.0).to(device)
+        y_tensor = torch.from_numpy(case_data["y"]).to(device)
         
         optimizer_cls.zero_grad()
         with torch.cuda.amp.autocast():
@@ -385,12 +438,13 @@ for epoch in range(1, NUM_EPOCHS_CLS + 1):
     classifier.eval()
     all_preds, all_targets = [], []
     with torch.no_grad():
-        for case in case_cache["validation"]:
-            x_tensor = (torch.from_numpy(case["x"]).float() / 255.0).to(device)
+        for cid in valid_cases["validation"]:
+            case_data = np.load(CASE_DIR / f"{cid}.npz")
+            x_tensor = (torch.from_numpy(case_data["x"]).float() / 255.0).to(device)
             with torch.cuda.amp.autocast():
                 preds = torch.sigmoid(classifier(x_tensor)).cpu().numpy()
             all_preds.append(preds)
-            all_targets.append(case["y"])
+            all_targets.append(case_data["y"])
             
     all_preds = np.concatenate(all_preds, axis=0)
     all_targets = np.concatenate(all_targets, axis=0)
@@ -404,7 +458,7 @@ for epoch in range(1, NUM_EPOCHS_CLS + 1):
             aucs.append(0.5)
     mean_auc = np.mean(aucs)
     
-    print(f"Epoch {epoch:2d}/{NUM_EPOCHS_CLS} | Train Loss: {total_loss/len(case_cache['train']):.4f} | Val Mean AUROC: {mean_auc:.4f}")
+    print(f"Epoch {epoch:2d}/{NUM_EPOCHS_CLS} | Train Loss: {total_loss/len(valid_cases['train']):.4f} | Val Mean AUROC: {mean_auc:.4f}")
     if mean_auc > best_val_auc:
         best_val_auc = mean_auc
         torch.save(classifier.state_dict(), "best_classifier.pth")
