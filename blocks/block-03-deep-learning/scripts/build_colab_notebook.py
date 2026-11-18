@@ -237,13 +237,25 @@ SLICE_DIR.mkdir(parents=True, exist_ok=True)
 valid_cases = {"train": [], "validation": []}
 slice_files = {"train_pos": [], "train_neg": [], "val": []}
 
+is_cache_valid = False
 if MANIFEST_FILE.exists():
-    print("⚡ Đã tìm thấy bộ nhớ cache 512x512 trên ổ cứng SSD! Đang nạp danh mục...")
-    manifest = json.loads(MANIFEST_FILE.read_text())
-    valid_cases = manifest["valid_cases"]
-    train_slice_files = manifest["train_slice_files"]
-    val_slice_files = manifest["val_slice_files"]
-else:
+    try:
+        manifest = json.loads(MANIFEST_FILE.read_text())
+        if len(manifest.get("train_slice_files", [])) > 0 and len(manifest.get("valid_cases", {}).get("train", [])) > 0:
+            is_cache_valid = True
+            valid_cases = manifest["valid_cases"]
+            train_slice_files = manifest["train_slice_files"]
+            val_slice_files = manifest["val_slice_files"]
+            print("⚡ Đã tìm thấy bộ nhớ cache 512x512 hoàn chỉnh trên ổ cứng SSD! Đang nạp danh mục...")
+    except Exception:
+        is_cache_valid = False
+
+if not is_cache_valid:
+    if CACHE_DIR.exists():
+        shutil.rmtree(CACHE_DIR, ignore_errors=True)
+    CASE_DIR.mkdir(parents=True, exist_ok=True)
+    SLICE_DIR.mkdir(parents=True, exist_ok=True)
+    
     for sp in ["train", "validation"]:
         print(f"-> Đang xử lý tập {sp} ({len(SPLITS[sp])} ca)...")
         for cid in tqdm(SPLITS[sp]):
