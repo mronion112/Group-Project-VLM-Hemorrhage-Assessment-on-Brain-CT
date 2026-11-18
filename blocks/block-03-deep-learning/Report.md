@@ -7,7 +7,7 @@
 
 Đã triển khai hoàn chỉnh pipeline huấn luyện và đánh giá trên Google Colab GPU (Tesla T4) tại file `Block3_Colab_Training_Pipeline.ipynb`. Pipeline tích hợp các kỹ thuật kiến trúc tối tân từ quán quân **RSNA 2019 (SeuTao)** và **MICCAI INSTANCE 2022 (NVIDIA / Team Vegetable)**, giải quyết triệt để các hạn chế về độ phân giải, dữ liệu y khoa, sự méo mó giá trị HU và hiện tượng dương tính giả.
 
-## Phương pháp và Kiến trúc Tối tân (Champion Pipeline)
+## Phương pháp
 
 Pipeline được chuẩn hóa thành các giai đoạn độc lập nhưng kết nối chặt chẽ theo Interface Contract v1.0:
 
@@ -23,18 +23,25 @@ Pipeline được chuẩn hóa thành các giai đoạn độc lập nhưng kế
 ### 2. Tăng cường Dữ liệu Y khoa Đồng bộ (Synchronous Medical Augmentation)
 
 Nhằm chống hiện tượng học vẹt (overfitting) trên tập dữ liệu 192 ca CT:
+
 - **Random Affine:** Xoay nhẹ góc $\pm 10^\circ$, dịch chuyển $\pm 4\%$, co giãn nhẹ $0.95 - 1.05$ (mô phỏng độ lệch tư thế đầu bệnh nhân trong gantry máy chụp).
 - **Random Horizontal Flip ($p=0.5$):** Lật gương theo trục hoành, khai thác tính đối xứng giải phẫu của hai bán cầu não để nhân đôi độ đa dạng dữ liệu.
 - **Quy tắc bảo toàn giải phẫu:** Tuyệt đối không lật dọc (Vertical Flip) để tránh đảo ngược cực đỉnh sọ và nền sọ, gây sai lệch nghiêm trọng về phân bố bệnh học. Phép biến đổi được áp dụng đồng bộ cho cả ảnh CT và ground truth mask.
 
-### 3. Phân loại Đa nhãn Chuỗi 3D (RSNA Top 1 Champion — SeuTao)
+### 3. Phân loại Đa nhãn Chuỗi 3D
 
 - **Tầng 1 (Spatial Feature Extractor):** ResNet-34 pretrained trích xuất vector đặc trưng $512$ chiều cho từng lát cắt 2D.
 - **Tầng 2 (Sequence Context Aggregator):** Bidirectional GRU (`hidden_dim=128`, `bidirectional=True`) quét 2 chiều dọc theo trục không gian $Z$, mô phỏng quá trình bác sĩ cuộn phim CT từ đỉnh đầu xuống nền sọ để học tính liên tục giải phẫu của khối xuất huyết.
 - **Hàm mất mát:** `BCEWithLogitsLoss` có trọng số bù trừ `pos_weight` cho các phân loại hiếm (EDH, SDH).
 - **Huấn luyện tăng tốc:** Sử dụng `torch.cuda.amp.autocast()` và `GradScaler()` giúp tối ưu hóa thời gian huấn luyện.
 
-### 4. Phân đoạn Nâng cao scSE Attention U-Net & Focal Tversky Loss (MICCAI INSTANCE 2022 Champion)
+#### Thảo luận Kiến trúc: Học Đa nhiệm Đồng thời (Multi-task) vs Phân tầng Hai Giai đoạn (Cascaded 2-Stage)
+
+Trong quá trình thiết kế, nhóm đã phân tích sâu hai hướng tiếp cận:
+1. **Kiến trúc Phân tầng Hai Giai đoạn (Cascaded 2-Stage):** Dùng Model 1 để sàng lọc sơ bộ `Any_ICH`. Nếu dương tính mới chuyển tiếp sang Model 2 để định danh 5 subtype. Mặc dù trực quan theo tư duy phân luồng cấp cứu, hướng tiếp cận này có nhược điểm chí mạng là **Sai số dây chuyền (Error Propagation)**: Nếu Model 1 bỏ sót một dải máu mỏng rãnh não (SAH), Model 2 hoàn toàn không có cơ hội tiếp cận ca bệnh, dẫn đến suy giảm độ nhạy tổng thể ($\text{Sensitivity}_{\text{hệ thống}} \le \text{Sensitivity}_{\text{Model 1}}$).
+2. **Kiến trúc Học Đa nhiệm Đồng thời (Multi-task Joint Learning — Lựa chọn của nhóm):** Kế thừa từ công trình kinh điển Qure.ai (Chilamkurthy et al., *The Lancet* 2018, arXiv:1803.05854) và Quán quân RSNA 2019 (SeuTao). Việc dùng chung một backbone biểu diễn đặc trưng giúp các nhánh subtype chi tiết bổ trợ ngược lại cho nhánh `Any_ICH` tổng quát (Mutual Representation Sharing), tăng độ tin cậy và tối ưu thời gian suy luận trên phần cứng thực tế. Hướng 2-Stage được lưu trữ làm bài toán đối chứng thực nghiệm (Ablation Study) trong giai đoạn mở rộng.
+
+### 4. Phân đoạn Nâng cao scSE Attention U-Net & Focal Tversky Loss (MICCAI INSTANCE 2022 )
 
 - **Kiến trúc:** Attention U-Net với Encoder ResNet-34 và khối **scSE (Spatial and Channel Squeeze-and-Excitation)**. Khối Spatial SE tự động triệt tiêu tín hiệu xương sọ và viền bản sọ, trong khi Channel SE tăng trọng số cho các kênh nhạy máu.
 - **Hàm mất mát Focal Tversky Loss ($\alpha=0.7, \beta=0.3, \gamma=1.33$):**
@@ -48,11 +55,11 @@ Nhằm chống hiện tượng học vẹt (overfitting) trên tập dữ liệu
 - **Giải pháp MICCAI INSTANCE 2022:** Cho mạng scSE Attention U-Net học phân đoạn hoàn toàn end-to-end trên toàn bộ dải tín hiệu. Áp dụng hậu xử lý **3D Connected Component Spatial Consistency**: Lọc bỏ các cụm liên thông không gian 3D có thể tích nhỏ dưới $25 \text{ mm}^3$ chỉ xuất hiện đơn lẻ trên 1 lát cắt mà không có sự liên tục giải phẫu giữa các lát liền kề.
 - **Kết quả đo kiểm Ablation:**
 
-| Phương pháp Hậu xử lý | Dice (Lát Dương) | Specificity (Lát Âm) | Đánh giá Y khoa |
-|---|---|---|---|
-| Ngưỡng thấp cũ (Th=0.20, chỉ đo lát dương) | 0.612 | 71.4% | Nổ đốm đỏ giả rải rác nhu mô lành |
-| Lọc tay cảm tính ($15 \le \text{HU} \le 105$) | 0.578 (-3.4%) | 96.2% | Bị cắt cụt máu loãng và máu bán cấp |
-| **Thuần AI + 3D Spatial Consistency (MICCAI)** | **0.628 (+1.6%)** | **97.8%** | **Bảo toàn tổn thương, cực sạch lát âm** |
+| Phương pháp Hậu xử lý                          | Dice (Lát Dương)  | Specificity (Lát Âm) | Đánh giá Y khoa                          |
+| ---------------------------------------------- | ----------------- | -------------------- | ---------------------------------------- |
+| Ngưỡng thấp cũ (Th=0.20, chỉ đo lát dương)     | 0.612             | 71.4%                | Nổ đốm đỏ giả rải rác nhu mô lành        |
+| Lọc tay cảm tính ($15 \le \text{HU} \le 105$)  | 0.578 (-3.4%)     | 96.2%                | Bị cắt cụt máu loãng và máu bán cấp      |
+| **Thuần AI + 3D Spatial Consistency (MICCAI)** | **0.628 (+1.6%)** | **97.8%**            | **Bảo toàn tổn thương, cực sạch lát âm** |
 
 ### 6. Đánh giá Toàn diện và Quét Ngưỡng Tối ưu
 
@@ -63,21 +70,25 @@ Khắc phục hoàn toàn thiên lệch đánh giá: Quét ngưỡng cắt xác 
 - Tự động sinh `findings.json` chuẩn hóa 100% theo JSON Schema (bản quyền `docs/INTERFACE_CONTRACT.md`), kiểm tra hướng affine ma trận (`LAS+` vs `RAS+`) để gán chính xác bên tổn thương (`left`/`right`/`bilateral`).
 - Tự động sinh `mask_ich.nii.gz` kích thước gốc ($512 \times 512 \times Z$) giữ nguyên hệ trục tọa độ voxel thực tế.
 - **Bàn giao Thể tích cho Block 4:** Thể tích khối máu tụ được tính toán chính xác bằng phương pháp tích phân voxel (Voxel Counting):
-  $$\text{Volume (mL)} = \frac{\sum (\text{Mask} > 0) \times \Delta x \times \Delta y \times \Delta z}{1000}$$
+
+  $$
+  \text{Volume (mL)} = \frac{\sum (\text{Mask} > 0) \times \Delta x \times \Delta y \times \Delta z}{1000}
+  $$
+
   Với $\Delta x, \Delta y, \Delta z$ trích xuất trực tiếp từ header NIfTI (`pixdim`). Block 4 nhận mask nguyên bản có thể tính ngay thể tích mL, so sánh với công thức kinh điển ABC/2 và xác định độ lệch đường giữa (Midline Shift) mà không bị sai số nội suy.
 
-*Chi tiết danh mục bài báo gốc, giải đấu quốc tế và mã trích dẫn BibTeX được tổng hợp tại [CITATIONS.md](CITATIONS.md).*
+_Chi tiết danh mục bài báo gốc, giải đấu quốc tế và mã trích dẫn BibTeX được tổng hợp tại [CITATIONS.md](CITATIONS.md)._
 
 ## Benchmark cần báo cáo
 
-| Nhiệm vụ | Metric tối thiểu | Phân tầng bắt buộc | Kết quả dự án |
-|---|---|---|---|
-| Presence | Sensitivity, specificity, AUROC, AUPRC | Mức ca; external site/dataset | Sẵn sàng pipeline |
-| 5 subtype | Sensitivity, specificity, macro-F1, confusion matrix | Từng subtype, đồng mắc, mức ca/lát tách biệt | Sẵn sàng pipeline |
-| Detection | lesion-wise sensitivity, precision, FROC/mAP nếu có bbox | Theo subtype/kích thước | Sẵn sàng pipeline |
-| Segmentation | Dice, HD95, lesion-wise sensitivity | Mask tổng và subtype; tổn thương nhỏ; dataset | Sẵn sàng pipeline |
-| Calibration | Brier/ECE hoặc reliability plot; sensitivity theo threshold | Từng subtype, threshold đã khóa | Sẵn sàng pipeline |
-| Latency | s/volume, s/slice, batch, throughput, peak VRAM | Mỗi architecture và resolution | Sẵn sàng pipeline |
+| Nhiệm vụ     | Metric tối thiểu                                            | Phân tầng bắt buộc                            | Kết quả dự án     |
+| ------------ | ----------------------------------------------------------- | --------------------------------------------- | ----------------- |
+| Presence     | Sensitivity, specificity, AUROC, AUPRC                      | Mức ca; external site/dataset                 | Sẵn sàng pipeline |
+| 5 subtype    | Sensitivity, specificity, macro-F1, confusion matrix        | Từng subtype, đồng mắc, mức ca/lát tách biệt  | Sẵn sàng pipeline |
+| Detection    | lesion-wise sensitivity, precision, FROC/mAP nếu có bbox    | Theo subtype/kích thước                       | Sẵn sàng pipeline |
+| Segmentation | Dice, HD95, lesion-wise sensitivity                         | Mask tổng và subtype; tổn thương nhỏ; dataset | Sẵn sàng pipeline |
+| Calibration  | Brier/ECE hoặc reliability plot; sensitivity theo threshold | Từng subtype, threshold đã khóa               | Sẵn sàng pipeline |
+| Latency      | s/volume, s/slice, batch, throughput, peak VRAM             | Mỗi architecture và resolution                | Sẵn sàng pipeline |
 
 ## Mốc tham khảo từ report/tài liệu (không phải kết quả của dự án)
 

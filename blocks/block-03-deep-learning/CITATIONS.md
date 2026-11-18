@@ -63,6 +63,17 @@ Tài liệu này tổng hợp toàn bộ các công trình nghiên cứu khoa h�
 - **Hội nghị:** IEEE 15th International Symposium on Biomedical Imaging (ISBI 2018), Washington, DC, USA.
 - **DOI / arXiv:** [10.1109/ISBI.2018.8363574](https://doi.org/10.1109/ISBI.2018.8363574) | [arXiv:1710.04934](https://arxiv.org/abs/1710.04934)
 
+### 2.3. Công trình Tiên phong về Phát hiện và Phân loại Đa nhãn CT Sọ não (Qure.ai / The Lancet 2018)
+
+- **Tên bài báo:** *Development and Validation of Deep Learning Algorithms for Detection of Critical Findings in Head CT Scans*
+- **Tác giả:** Sasank Chilamkurthy, Rohit Ghosh, Swetha Tanamala, Mustafa Biviji, Norbert G. Campeau, Vasantha Kumar Venugopal, Vidur Mahajan, Pooja Rao, Prashant Warier
+- **Tạp chí / arXiv:** *The Lancet* / arXiv:1803.05854 (2018).
+- **arXiv:** [arXiv:1803.05854](https://arxiv.org/abs/1803.05854)
+- **Đóng góp quan trọng:**
+  - Bộ dữ liệu kiểm định nổi tiếng **CQ500** (500 ca CT độc lập từ nhiều trung tâm y tế).
+  - Chứng minh mô hình học sâu có khả năng nhận diện đồng thời cả xuất huyết (`ICH`) và 5 phân loại con (`EDH`, `SDH`, `SAH`, `IPH`, `IVH`), gãy xương sọ (fracture) và hiệu ứng chèn ép đường giữa não (midline shift).
+  - Cung cấp cơ sở học thuật vững chắc cho việc học đa nhiệm (Multi-task Learning): Dự đoán đồng thời giúp mạng chia sẻ đặc trưng biểu diễn giữa các subtype và `Any_ICH`, tránh hiện tượng sai số dây chuyền (error propagation) của các kiến trúc phân tầng rời rạc.
+
 ---
 
 ## 3. Kiến trúc Phân đoạn Nâng cao & Thách thức MICCAI INSTANCE
@@ -226,5 +237,16 @@ Bạn có thể copy trực tiếp đoạn mã dưới đây vào file `.bib` tr
   year={2018},
   organization={IEEE},
   doi={10.1109/ISBI.2018.8363574}
+}
+
+@article{chilamkurthy2018deep,
+  title={Development and validation of deep learning algorithms for detection of critical findings in head CT scans},
+  author={Chilamkurthy, Sasank and Ghosh, Rohit and Tanamala, Swetha and Biviji, Mustafa and Campeau, Norbert G and Venugopal, Vasantha Kumar and Mahajan, Vidur and Rao, Pooja and Warier, Prashant},
+  journal={The Lancet},
+  volume={392},
+  number={10162},
+  pages={2388--2396},
+  year={2018},
+  doi={10.1016/S0140-6736(18)31645-3}
 }
 ```
