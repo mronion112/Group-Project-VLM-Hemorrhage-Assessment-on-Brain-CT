@@ -217,6 +217,8 @@ def process_case_data(case_id, target_hw=(512, 512)):
         # Lưu x_3ch dạng uint8 (0-255) và masks dạng uint8 để tiết kiệm RAM tối đa (< 3.5 GB)
         slices_x.append((x_3ch * 255.0).astype(np.uint8))
         slices_y.append(y_vec)
+        masks_bin.append(gt_bin)
+        masks_sub.append(gt_sub)
         slices_hu.append(np.clip(hu_2d, -1024, 3071).astype(np.int16))
         
     return slices_x, slices_y, masks_bin, masks_sub, slices_hu
