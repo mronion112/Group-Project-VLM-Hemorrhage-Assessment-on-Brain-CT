@@ -1,41 +1,41 @@
 {
   "schema_version": "1.0",
   "case_id": "ID_db89259c_ID_2c20aff0f9",
-  "status": "partial",
-  "created_at_utc": "2026-11-13T06:45:09Z",
+  "status": "ok",
+  "created_at_utc": "2026-11-18T09:23:44Z",
   "source_artifact_ids": [
     "bhsd:ID_db89259c_ID_2c20aff0f9"
   ],
   "model_name": "resnet34_bigru_classifier+scse_unet_focaltversky",
   "model_version": "v2.0-champion-colab",
-  "weights_hash": "sha256:7a6128f47869b945093a5c980e880f240215dccede9160bd051912c0e01ad4e2",
+  "weights_hash": "sha256:4eb43cee4ebb0a12b9a37fc42b703f47fc921dab8c0451c75031a4c47d0bb300",
   "config_hash": "sha256:8430a100b1cc1284f80b19a2ec7360dfe4a881b88865ed2862baf2da5bc66f32",
   "input_space_id": "ID_db89259c_ID_2c20aff0f9:block2:v1",
   "presence": {
     "label": "positive",
-    "score": 0.848078,
+    "score": 0.848145,
     "threshold": 0.5
   },
   "subtypes": {
     "EDH": {
-      "score": 0.334753,
+      "score": 0.166016,
       "present": false
     },
     "SDH": {
-      "score": 0.478984,
+      "score": 0.25708,
       "present": false
     },
     "SAH": {
-      "score": 0.449943,
+      "score": 0.374268,
       "present": false
     },
     "IPH": {
-      "score": 0.478587,
-      "present": false
+      "score": 0.555664,
+      "present": true
     },
     "IVH": {
-      "score": 0.347771,
-      "present": false
+      "score": 0.706055,
+      "present": true
     }
   },
   "masks": {
@@ -47,13 +47,11 @@
   },
   "localization": {
     "status": "mask-derived",
-    "side": "bilateral",
+    "side": "left",
     "regions": [],
     "coordinate_system": "LAS+"
   },
   "heatmaps": [],
-  "warnings": [
-    "Global presence is positive (0.848078), but uncalibrated subtype scores are < 0.5. Primary candidate is SDH (0.478984)."
-  ],
+  "warnings": [],
   "errors": []
 }
